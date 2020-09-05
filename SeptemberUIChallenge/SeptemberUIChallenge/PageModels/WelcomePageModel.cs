@@ -1,6 +1,10 @@
+using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using SeptemberUIChallenge.Commands;
 using SeptemberUIChallenge.Data.Models;
+using SeptemberUIChallenge.Services;
+using SeptemberUIChallenge.Validators;
 using Xamarin.Forms;
 using static SeptemberUIChallenge.Data.Models.LoginMode;
 
@@ -9,6 +13,9 @@ namespace SeptemberUIChallenge.PageModels
     public class WelcomePageModel : BasePageModel
     {
         #region Fields
+        
+        private readonly ILoginService _loginService;
+        private readonly EmailValidator _validator;
 
         private LoginMode _loginMode;
 
@@ -16,8 +23,10 @@ namespace SeptemberUIChallenge.PageModels
 
         #region Constructor
 
-        public WelcomePageModel()
+        public WelcomePageModel(ILoginService loginService)
         {
+            _loginService = loginService;
+            _validator = new EmailValidator();
             _loginMode = Undefined;
             
             LoginCommand = new AsyncCommand(ExecuteLoginCommand);
@@ -59,8 +68,36 @@ namespace SeptemberUIChallenge.PageModels
                 return;
             }
 
-            //todo RegisterUser();
-            Application.Current.MainPage = new AppShell();
+            await MakeRegistration();
+        }
+
+        private async Task MakeRegistration()
+        {
+            //todo add password validator later
+            //todo add it as a new type?
+            var result = await _validator.ValidateAsync(Email);
+            if (!result.IsValid)
+            {
+                //todo add validation Error to UI
+                return;
+            }
+            
+            try
+            {
+                await (_loginMode switch
+                {
+                    Register => _loginService.Register(Email,Password),
+                    Login => _loginService.Login(Email,Password),
+                    _ => throw new ArgumentOutOfRangeException(nameof(_loginMode))
+                });
+                Application.Current.MainPage = new AppShell();
+            }
+            catch (Exception e)
+            {
+                //in real app it should be replaced with logger
+                Debug.WriteLine(e.Message);
+                Debug.WriteLine(e.StackTrace);
+            }
         }
 
         private void MakeTransformation()
@@ -76,8 +113,8 @@ namespace SeptemberUIChallenge.PageModels
                 MakeTransformation();
                 return;
             }
-            //todo LoginUser();
-            Application.Current.MainPage = new AppShell();
+            
+            await MakeRegistration();
         }
         
         private async Task ExecuteSwitchTypeCommand()
@@ -89,39 +126,3 @@ namespace SeptemberUIChallenge.PageModels
         #endregion Private Methods
     }
 }
-
-
-
-/*
-
-
-        #region Fields
-
-        #endregion Fields
-
-        #region Constructor
-
-
-        #endregion Constructor
-
-        #region Properties
-
-        
-
-        #endregion Properties
-        
-        #region Commands
-        
-        #endregion Commands
-        
-        #region Public Methods
-        
-        
-        #endregion Public Methods
-        
-        #region Private Methods
-        
-        
-        #endregion Private Methods
-
-*/

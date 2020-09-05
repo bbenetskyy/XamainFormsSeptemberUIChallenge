@@ -4,6 +4,9 @@
   <xs:element name="Weavers">
     <xs:complexType>
       <xs:all>
+        <xs:element name="Realm" minOccurs="0" maxOccurs="1">
+          <xs:complexType></xs:complexType>
+        </xs:element>
         <xs:element name="PropertyChanged" minOccurs="0" maxOccurs="1">
           <xs:complexType>
             <xs:attribute name="InjectOnPropertyNameChanged" type="xs:boolean">

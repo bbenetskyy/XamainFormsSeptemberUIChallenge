@@ -10,7 +10,7 @@ namespace SeptemberUIChallenge
         public App()
         {
             InitializeComponent();
-
+            IoC.RegisterTypes();
             MainPage = new WelcomePage();
         }
     }
