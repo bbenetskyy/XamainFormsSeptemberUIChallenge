@@ -1,4 +1,4 @@
-namespace SeptemberUIChallenge.Data.Models
+namespace SeptemberUIChallenge.Data.Api
 {
     public class LoginRequest
     {

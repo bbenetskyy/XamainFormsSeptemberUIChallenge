@@ -13,6 +13,7 @@
         <PackageReference Include="Fody" Version="6.2.5" />
         <PackageReference Include="MLToolkit.Forms.SwipeCardView" Version="2.2.0" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
+        <PackageReference Include="Realm.Fody" Version="4.3.0" />
         <PackageReference Include="Refit" Version="5.1.67" />
         <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
     </ItemGroup>

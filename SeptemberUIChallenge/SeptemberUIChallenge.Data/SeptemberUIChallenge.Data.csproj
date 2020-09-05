@@ -5,6 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Bogus" Version="30.0.4" />
+      <PackageReference Include="Realm" Version="4.3.0" />
+      <PackageReference Include="Realm.Fody" Version="4.3.0" />
       <PackageReference Include="Refit" Version="5.1.67" />
     </ItemGroup>
 

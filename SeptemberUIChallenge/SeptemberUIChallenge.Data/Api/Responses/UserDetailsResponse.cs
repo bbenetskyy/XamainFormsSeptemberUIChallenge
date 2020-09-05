@@ -1,6 +1,6 @@
-namespace SeptemberUIChallenge.Data.Models
+namespace SeptemberUIChallenge.Data.Api
 {
-    public abstract class UserDto
+    public abstract class UserDetailsResponse
     {
         public long Id { get; set; }
         public string Email { get; set; }

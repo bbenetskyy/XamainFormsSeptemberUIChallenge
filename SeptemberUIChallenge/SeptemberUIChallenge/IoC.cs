@@ -1,4 +1,5 @@
 using SeptemberUIChallenge.Commands;
+using SeptemberUIChallenge.Data.Infrastructure;
 using Xamarin.Forms;
 
 namespace SeptemberUIChallenge
@@ -7,7 +8,7 @@ namespace SeptemberUIChallenge
     {
         public static void RegisterTypes()
         {
-            // DependencyService.Register<AsyncCommand>();
+            DependencyService.Register<InMemoryDatabaseProvider>();
         }
     }
 }
