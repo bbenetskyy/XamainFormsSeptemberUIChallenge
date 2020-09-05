@@ -1,4 +1,5 @@
 ﻿using System;
+using SeptemberUIChallenge.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace SeptemberUIChallenge
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new WelcomePage();
         }
     }
 }

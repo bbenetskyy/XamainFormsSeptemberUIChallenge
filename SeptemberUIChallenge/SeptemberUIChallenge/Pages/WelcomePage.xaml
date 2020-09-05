@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SeptemberUIChallenge.Pages.WelcomePage"
+             BindingContext="{Binding WelcomePageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Email" Text="{Binding Email}"/>
+            <Entry Placeholder="Password" Text="{Binding Password}"/>
+            <Button Text="Login" Command="{Binding LoginCommand}"/>
+            <Button Text="Register" Command="{Binding RegisterCommand}"/>
+            <Label TextDecorations="Underline" Text="Back">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SwitchTypeCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

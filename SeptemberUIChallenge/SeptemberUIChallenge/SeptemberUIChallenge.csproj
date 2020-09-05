@@ -10,6 +10,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Fody" Version="6.2.5" />
+        <PackageReference Include="MLToolkit.Forms.SwipeCardView" Version="2.2.0" />
+        <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
+        <PackageReference Include="Refit" Version="5.1.67" />
         <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
     </ItemGroup>
 
@@ -22,6 +26,22 @@
         <SubType>Designer</SubType>
         <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       </EmbeddedResource>
+      <EmbeddedResource Update="Pages\WelcomePage.xaml">
+        <SubType>Designer</SubType>
+        <Generator></Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Pages\CardsPage.xaml">
+        <SubType>Designer</SubType>
+        <Generator></Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Pages\StatisticsPage.xaml">
+        <SubType>Designer</SubType>
+        <Generator></Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Pages\FavouritesPage.xaml">
+        <SubType>Designer</SubType>
+        <Generator></Generator>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -32,5 +52,21 @@
         <DependentUpon>MainPage.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Pages\WelcomePage.xaml.cs">
+        <DependentUpon>WelcomePage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="Pages\CardsPage.xaml.cs">
+        <DependentUpon>CardsPage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="Pages\StatisticsPage.xaml.cs">
+        <DependentUpon>StatisticsPage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="Pages\FavouritesPage.xaml.cs">
+        <DependentUpon>FavouritesPage.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SeptemberUIChallenge.Data\SeptemberUIChallenge.Data.csproj" />
     </ItemGroup>
 </Project>

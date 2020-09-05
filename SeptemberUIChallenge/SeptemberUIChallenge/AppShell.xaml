@@ -3,8 +3,19 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:pages="clr-namespace:SeptemberUIChallenge.Pages;assembly=SeptemberUIChallenge"
-       x:Class="SeptemberUIChallenge.AppShell">
-       <ShellContent>
-              <pages:MainPage/>
-       </ShellContent>
+       x:Class="SeptemberUIChallenge.AppShell"
+       FlyoutBehavior="Disabled"
+       NavBarIsVisible="False">
+       
+       <FlyoutItem>
+              <Tab Title="Cards">
+                     <ShellContent ContentTemplate="{DataTemplate pages:CardsPage}"/>
+              </Tab>
+              <Tab Title="Favourites">
+                     <ShellContent ContentTemplate="{DataTemplate pages:FavouritesPage}"/>
+              </Tab>
+              <Tab Title="Statistics">
+                     <ShellContent ContentTemplate="{DataTemplate pages:StatisticsPage}"/>
+              </Tab>
+       </FlyoutItem>
 </Shell>
