@@ -18,6 +18,9 @@
         <StackLayout>
             <swipeCardView:SwipeCardView 
                 ItemsSource="{Binding Users}"
+                SupportedDraggingDirections="Left,Right"
+                SupportedSwipeDirections="Left,Right"
+                DraggingCommand="{Binding CardDraggingCommand}"
                 VerticalOptions="FillAndExpand">
                 <swipeCardView:SwipeCardView.ItemTemplate>
                     <DataTemplate
