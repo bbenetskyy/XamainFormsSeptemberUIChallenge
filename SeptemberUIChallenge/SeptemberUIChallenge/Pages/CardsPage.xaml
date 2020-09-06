@@ -126,6 +126,7 @@
                     </DataTemplate>
                 </swipeCardView:SwipeCardView.ItemTemplate>
             </swipeCardView:SwipeCardView>
+            <!--  todo add icons  -->
             <StackLayout
                 Padding="10,10,10,20"
                 HorizontalOptions="Center"

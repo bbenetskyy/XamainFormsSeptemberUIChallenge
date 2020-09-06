@@ -1,23 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true"
-             x:Class="SeptemberUIChallenge.Pages.WelcomePage"
-             Visual="Material"
-             BindingContext="{Binding WelcomePageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
+<ContentPage
+    x:Class="SeptemberUIChallenge.Pages.WelcomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:SeptemberUIChallenge.Controls"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+    ios:Page.UseSafeArea="true"
+    BindingContext="{Binding WelcomePageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}"
+    Visual="Material">
+    <!--  todo move it to global stylesz  -->
+    <!--  todo add icons with icon font  -->
+    <ContentPage.Resources>
+        <Style x:Key="LoginEntry" TargetType="Entry">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="LoginLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="LoginButton" TargetType="Button" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Entry Placeholder="Email" Text="{Binding LoginModel.Email}"/>
-            <Entry Placeholder="Password" Text="{Binding LoginModel.Password}"/>
-            <Button Text="Login" Command="{Binding LoginCommand}"/>
-            <Button Text="Register" Command="{Binding RegisterCommand}"/>
-            <Label TextDecorations="Underline" Text="Back">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SwitchTypeCommand}"/>
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
+        <Grid>
+            <magic:GradientView>
+                <magic:CssGradientSource>
+                    <x:String>
+                        <![CDATA[
+              radial-gradient(circle at 59% 30%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 78% 41%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.02) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 45% 43%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 63% 9%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 71% 80%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 19% 0%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 62% 12%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 46% 76%, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.02) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 59% 41%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 4% 53%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 16% 40%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 94% 48%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 47% 6%, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.02) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 64% 65%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 58% 40%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 37% 3%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 42% 50%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 21% 78%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), linear-gradient(135deg, hsla(233, 81%, 39%, 1), hsla(218, 81%, 39%, 1))
+            ]]>
+                    </x:String>
+                </magic:CssGradientSource>
+            </magic:GradientView>
+            <Grid RowDefinitions="*, 2*">
+                <StackLayout Grid.Row="1">
+                    <Entry
+                        Placeholder="Email"
+                        Style="{StaticResource LoginEntry}"
+                        Text="{Binding LoginModel.Email}" />
+                    <Entry
+                        Placeholder="Password"
+                        Style="{StaticResource LoginEntry}"
+                        Text="{Binding LoginModel.Password}" />
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="50">
+                        <controls:MagicButton
+                            Command="{Binding LoginCommand}"
+                            Text="Login"
+                            WidthRequest="150">
+                            <controls:MagicButton.CssGradientSource>
+                                <magic:CssGradientSource>
+                                    <x:String>
+                                        <![CDATA[
+               repeating-linear-gradient(90deg, rgba(178, 178, 178, 0.07) 0px, rgba(178, 178, 178, 0.07) 29px, rgba(5, 5, 5, 0.07) 29px, rgba(5, 5, 5, 0.07) 69px, rgba(146, 146, 146, 0.07) 69px, rgba(146, 146, 146, 0.07) 111px, rgba(141, 141, 141, 0.07) 111px, rgba(141, 141, 141, 0.07) 122px, rgba(86, 86, 86, 0.07) 122px, rgba(86, 86, 86, 0.07) 145px), repeating-linear-gradient(90deg, rgba(57, 57, 57, 0.07) 0px, rgba(57, 57, 57, 0.07) 32px, rgba(249, 249, 249, 0.07) 32px, rgba(249, 249, 249, 0.07) 80px, rgba(47, 47, 47, 0.07) 80px, rgba(47, 47, 47, 0.07) 95px, rgba(95, 95, 95, 0.07) 95px, rgba(95, 95, 95, 0.07) 133px, rgba(34, 34, 34, 0.07) 133px, rgba(34, 34, 34, 0.07) 168px), repeating-linear-gradient(90deg, rgba(22, 22, 22, 0.1) 0px, rgba(22, 22, 22, 0.1) 147px, rgba(12, 12, 12, 0.1) 147px, rgba(12, 12, 12, 0.1) 244px, rgba(22, 22, 22, 0.1) 244px, rgba(22, 22, 22, 0.1) 325px, rgba(46, 46, 46, 0.1) 325px, rgba(46, 46, 46, 0.1) 429px, rgba(179, 179, 179, 0.1) 429px, rgba(179, 179, 179, 0.1) 572px), repeating-linear-gradient(90deg, rgba(126, 126, 126, 0.1) 0px, rgba(126, 126, 126, 0.1) 82px, rgba(22, 22, 22, 0.1) 82px, rgba(22, 22, 22, 0.1) 150px, rgba(0, 0, 0, 0.1) 150px, rgba(0, 0, 0, 0.1) 240px, rgba(124, 124, 124, 0.1) 240px, rgba(124, 124, 124, 0.1) 374px, rgba(2, 2, 2, 0.1) 374px, rgba(2, 2, 2, 0.1) 435px), linear-gradient(90deg, rgb(191, 34, 216), rgb(34, 13, 81))
+            ]]>
+                                    </x:String>
+                                </magic:CssGradientSource>
+                            </controls:MagicButton.CssGradientSource>
+                        </controls:MagicButton>
+                        <controls:MagicButton
+                            Command="{Binding RegisterCommand}"
+                            Text="Register"
+                            WidthRequest="150">
+                            <controls:MagicButton.CssGradientSource>
+                                <magic:CssGradientSource>
+                                    <x:String>
+                                        <![CDATA[
+               radial-gradient(circle at center, rgb(80, 32, 84), rgb(62, 35, 81), rgb(44, 38, 79), rgb(26, 40, 76), rgb(8, 43, 73))
+            ]]>
+                                    </x:String>
+                                </magic:CssGradientSource>
+                            </controls:MagicButton.CssGradientSource>
+                        </controls:MagicButton>
+                    </StackLayout>
+                    <Label
+                        Margin="0,50,0,0"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource LoginLabel}"
+                        Text="Back"
+                        TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SwitchTypeCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
