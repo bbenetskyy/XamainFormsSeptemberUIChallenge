@@ -5,7 +5,7 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
              x:Class="SeptemberUIChallenge.Pages.WelcomePage"
-             
+             Visual="Material"
              BindingContext="{Binding WelcomePageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
     <ContentPage.Content>
         <StackLayout>

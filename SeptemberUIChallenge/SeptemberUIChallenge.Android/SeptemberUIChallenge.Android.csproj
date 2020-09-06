@@ -62,6 +62,7 @@
         <PackageReference Include="Xamarin.Forms.PancakeView">
           <Version>2.2.0.740</Version>
         </PackageReference>
+        <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.8.0.1364" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="MainActivity.cs" />
