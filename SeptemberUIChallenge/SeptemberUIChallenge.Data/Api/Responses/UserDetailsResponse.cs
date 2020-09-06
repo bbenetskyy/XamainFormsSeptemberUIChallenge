@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace SeptemberUIChallenge.Data.Api
 {
-    public abstract class UserDetailsResponse
+    public class UserDetailsResponse
     {
         [JsonProperty(PropertyName = "id")]
         public long Id { get; set; }

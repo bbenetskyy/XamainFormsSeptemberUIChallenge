@@ -20,7 +20,7 @@ namespace SeptemberUIChallenge.Data.Models
             FirstName = response.FirstName,
             LastName = response.LastName,
             Avatar = response.Avatar,
-            Details = Faker.Lorem.Letter(),
+            Details = Faker.Lorem.Paragraph(),
             Tags = new []
             {
                 Faker.Hacker.Adjective(), Faker.Hacker.Adjective(), Faker.Hacker.Adjective(),

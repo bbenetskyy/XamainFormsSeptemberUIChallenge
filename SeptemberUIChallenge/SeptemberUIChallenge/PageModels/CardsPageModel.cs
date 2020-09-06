@@ -1,7 +1,9 @@
 using System;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using SeptemberUIChallenge.Commands;
+using SeptemberUIChallenge.Data.Models;
 using SeptemberUIChallenge.Services;
 
 namespace SeptemberUIChallenge.PageModels
@@ -24,6 +26,7 @@ namespace SeptemberUIChallenge.PageModels
             IUserService userService)
         {
             _userService = userService;
+            Users = new ObservableCollection<UserDetails>();
             PageAppearingCommand = new AsyncCommand(ExecutePageAppearingCommand);
         }
         
@@ -32,6 +35,7 @@ namespace SeptemberUIChallenge.PageModels
         #region Properties
 
         public bool IsBusy { get; set; }
+        public ObservableCollection<UserDetails> Users { get; }
 
         #endregion Properties
         
@@ -54,7 +58,9 @@ namespace SeptemberUIChallenge.PageModels
             try
             {
                 IsBusy = true;
+                Users.Clear();
                 var users = await _userService.GetUserList(GetPageNumber());
+                users.ForEach(Users.Add);
             }
             catch (Exception e)
             {
