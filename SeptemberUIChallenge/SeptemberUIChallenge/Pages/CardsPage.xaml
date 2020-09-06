@@ -21,6 +21,7 @@
     <ContentPage.Content>
         <StackLayout>
             <swipeCardView:SwipeCardView
+                x:Name="SwipeCardView"
                 Margin="20"
                 Dragging="OnDragging"
                 DraggingCommand="{Binding CardDraggingCommand}"
@@ -28,7 +29,6 @@
                 LoopCards="True"
                 SupportedDraggingDirections="Left,Right"
                 SupportedSwipeDirections="Left,Right"
-                Threshold="{Binding Threshold}"
                 VerticalOptions="FillAndExpand">
                 <swipeCardView:SwipeCardView.ItemTemplate>
                     <DataTemplate x:DataType="models:UserDetails">
@@ -59,7 +59,7 @@
                                 <Frame
                                     x:Name="LikeFrame"
                                     Grid.Row="1"
-                                    Padding="30,20"
+                                    Padding="20,10"
                                     BackgroundColor="Transparent"
                                     BorderColor="#63DD99"
                                     CornerRadius="20"
@@ -81,7 +81,7 @@
                                     x:Name="NopeFrame"
                                     Grid.Row="1"
                                     Grid.Column="1"
-                                    Padding="30,20"
+                                    Padding="20,10"
                                     BackgroundColor="Transparent"
                                     BorderColor="#FF6A4F"
                                     CornerRadius="20"
@@ -135,6 +135,7 @@
                     <Button
                         x:Name="nopeButton"
                         BackgroundColor="#08032D"
+                        Clicked="OnNopeClicked"
                         CornerRadius="30"
                         HeightRequest="60"
                         Scale="1"
@@ -146,6 +147,7 @@
                     <Button
                         x:Name="likeButton"
                         BackgroundColor="#08032D"
+                        Clicked="OnLikeClicked"
                         CornerRadius="30"
                         HeightRequest="60"
                         Scale="1"

@@ -1,6 +1,5 @@
 using System;
 using MLToolkit.Forms.SwipeCardView.Core;
-using SeptemberUIChallenge.PageModels;
 using Xamarin.Forms;
 
 namespace SeptemberUIChallenge.Pages
@@ -9,20 +8,15 @@ namespace SeptemberUIChallenge.Pages
     {
         public CardsPage()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
         void OnDragging(object sender, DraggingCardEventArgs args)
         {
-            var view = (Xamarin.Forms.View)sender;
+            var view = (View)sender;
             var nopeFrame = view.FindByName<Frame>("NopeFrame");
             var likeFrame = view.FindByName<Frame>("LikeFrame");
-            var threshold = (BindingContext as CardsPageModel).Threshold;
-
-            var draggedXPercent = args.DistanceDraggedX / threshold;
-
-            var draggedYPercent = args.DistanceDraggedY / threshold;
-
+            //todo refactor this shit
             switch (args.Position)
             {
                 case DraggingCardPosition.Start:
@@ -35,13 +29,17 @@ namespace SeptemberUIChallenge.Pages
                 case DraggingCardPosition.UnderThreshold:
                     if (args.Direction == SwipeCardDirection.Left)
                     {
-                        nopeFrame.Opacity = (-1) * draggedXPercent;
-                        nopeButton.Scale = 1 + draggedXPercent / 2;
+                        nopeFrame.Opacity = 1;
+                        nopeButton.Scale = 0.75;
+                        likeFrame.Opacity = 0;
+                        likeButton.Scale = 1;
                     }
                     else if (args.Direction == SwipeCardDirection.Right)
                     {
-                        likeFrame.Opacity = draggedXPercent;
-                        likeButton.Scale = 1 - draggedXPercent / 2;
+                        likeFrame.Opacity = 1;
+                        likeButton.Scale = 0.75;
+                        nopeFrame.Opacity = 0;
+                        nopeButton.Scale = 1;
                     }
                     break;
 
@@ -49,15 +47,16 @@ namespace SeptemberUIChallenge.Pages
                     if (args.Direction == SwipeCardDirection.Left)
                     {
                         nopeFrame.Opacity = 1;
+                        nopeButton.Scale = 0.75;
+                        likeFrame.Opacity = 0;
+                        likeButton.Scale = 1;
                     }
                     else if (args.Direction == SwipeCardDirection.Right)
                     {
                         likeFrame.Opacity = 1;
-                    }
-                    else if (args.Direction == SwipeCardDirection.Up)
-                    {
+                        likeButton.Scale = 0.75;
                         nopeFrame.Opacity = 0;
-                        likeFrame.Opacity = 0;
+                        nopeButton.Scale = 1;
                     }
                     break;
 
@@ -78,6 +77,16 @@ namespace SeptemberUIChallenge.Pages
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        private void OnNopeClicked(System.Object sender, System.EventArgs e)
+        {
+            SwipeCardView.InvokeSwipe(SwipeCardDirection.Left);
+        }
+
+        private void OnLikeClicked(System.Object sender, System.EventArgs e)
+        {
+            SwipeCardView.InvokeSwipe(SwipeCardDirection.Right);
         }
     }
 }
