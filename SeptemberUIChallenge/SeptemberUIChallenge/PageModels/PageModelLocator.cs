@@ -1,4 +1,5 @@
 using SeptemberUIChallenge.Data.Api;
+using SeptemberUIChallenge.Data.Infrastructure;
 using SeptemberUIChallenge.Services;
 using Xamarin.Forms;
 
@@ -12,6 +13,7 @@ namespace SeptemberUIChallenge.PageModels
         public CardsPageModel CardsPageModel => new CardsPageModel(
             DependencyService.Get<IUserService>());
         public StatisticsPageModel StatisticsPageModel => new StatisticsPageModel();
-        public FavouritesPageModel FavouritesPageModel => new FavouritesPageModel();
+        public FavouritesPageModel FavouritesPageModel => new FavouritesPageModel(
+            DependencyService.Get<IUserRepository>());
     }
 }

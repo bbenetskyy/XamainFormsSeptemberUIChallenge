@@ -2,14 +2,56 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             xmlns:models="clr-namespace:SeptemberUIChallenge.Data.Models;assembly=SeptemberUIChallenge.Data"
              x:Class="SeptemberUIChallenge.Pages.FavouritesPage"
              BindingContext="{Binding FavouritesPageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
 
+    <ContentPage.Behaviors>
+        <behaviors:EventHandlerBehavior EventName="Appearing">
+            <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}"/>
+        </behaviors:EventHandlerBehavior>
+    </ContentPage.Behaviors>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+       <StackLayout BindableLayout.ItemsSource="{Binding Users}">
+           <BindableLayout.ItemTemplate>
+               <DataTemplate
+                   x:DataType="models:UserDetails">
+                   <Expander>
+                       <Expander.Header>
+                           <Label Text="{Binding Email}"
+                                  FontAttributes="Bold"
+                                  FontSize="Medium" />
+                       </Expander.Header>
+                       <Expander.ContentTemplate>
+                           <DataTemplate>
+                               <Grid Padding="10">
+                                   <Grid.ColumnDefinitions>
+                                       <ColumnDefinition Width="Auto" />
+                                       <ColumnDefinition Width="Auto" />
+                                   </Grid.ColumnDefinitions>
+                                   <Image Source="{Binding Avatar}"
+                                          Aspect="AspectFill"
+                                          HeightRequest="120"
+                                          WidthRequest="120" />
+                                   <Label Grid.Column="1"
+                                          Text="{Binding Details}"
+                                          FontAttributes="Italic" />
+                               </Grid>
+                           </DataTemplate>
+                       </Expander.ContentTemplate>
+                   </Expander>
+               </DataTemplate>
+           </BindableLayout.ItemTemplate>
+       </StackLayout>
+        
+        <!-- ExpandAnimationEasing="{x:Static Easing.CubicIn}" -->
+        <!-- ExpandAnimationLength="500" -->
+        <!-- CollapseAnimationEasing="{x:Static Easing.CubicOut}" -->
+        <!-- CollapseAnimationLength="500" -->
+        
     </ContentPage.Content>
 </ContentPage>

@@ -6,6 +6,8 @@
              xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
              xmlns:models="clr-namespace:SeptemberUIChallenge.Data.Models;assembly=SeptemberUIChallenge.Data"
              x:Class="SeptemberUIChallenge.Pages.CardsPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
              BindingContext="{Binding CardsPageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
 
     <ContentPage.Behaviors>
