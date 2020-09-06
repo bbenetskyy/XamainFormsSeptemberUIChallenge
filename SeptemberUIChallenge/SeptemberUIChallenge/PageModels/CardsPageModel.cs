@@ -34,6 +34,7 @@ namespace SeptemberUIChallenge.PageModels
         #region Properties
 
         public bool IsBusy { get; set; }
+        public uint Threshold { get; set; }
         public ObservableCollection<UserDetails> Users { get; }
 
         #endregion Properties

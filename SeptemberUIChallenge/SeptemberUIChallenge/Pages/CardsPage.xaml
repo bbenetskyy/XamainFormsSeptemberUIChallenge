@@ -1,41 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView"
-             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
-             xmlns:models="clr-namespace:SeptemberUIChallenge.Data.Models;assembly=SeptemberUIChallenge.Data"
-             x:Class="SeptemberUIChallenge.Pages.CardsPage"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true"
-             BindingContext="{Binding CardsPageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
+<ContentPage
+    x:Class="SeptemberUIChallenge.Pages.CardsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:models="clr-namespace:SeptemberUIChallenge.Data.Models;assembly=SeptemberUIChallenge.Data"
+    xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="true"
+    BindingContext="{Binding CardsPageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
 
     <ContentPage.Behaviors>
         <behaviors:EventHandlerBehavior EventName="Appearing">
-            <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}"/>
+            <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
         </behaviors:EventHandlerBehavior>
     </ContentPage.Behaviors>
-    
+
     <ContentPage.Content>
         <StackLayout>
-            <swipeCardView:SwipeCardView 
+            <swipeCardView:SwipeCardView
+                Margin="20"
+                Dragging="OnDragging"
+                DraggingCommand="{Binding CardDraggingCommand}"
                 ItemsSource="{Binding Users}"
+                LoopCards="True"
                 SupportedDraggingDirections="Left,Right"
                 SupportedSwipeDirections="Left,Right"
-                LoopCards="True"
-                DraggingCommand="{Binding CardDraggingCommand}"
+                Threshold="{Binding Threshold}"
                 VerticalOptions="FillAndExpand">
                 <swipeCardView:SwipeCardView.ItemTemplate>
-                    <DataTemplate
-                        x:DataType="models:UserDetails">
-                        <Label Text="{Binding FirstName}" 
-                               FontSize="Large" 
-                               HorizontalTextAlignment="Center" 
-                               VerticalTextAlignment="Center" 
-                               BackgroundColor="Beige"/>
+                    <DataTemplate x:DataType="models:UserDetails">
+                        <yummy:PancakeView CornerRadius="30">
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*">
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Aspect="AspectFill"
+                                    Source="{Binding Avatar}" />
+                                <Label
+                                    Margin="0,50"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HorizontalOptions="End"
+                                    Text="{Binding FirstName}"
+                                    TextColor="White" />
+                                <Label
+                                    Grid.Column="1"
+                                    Margin="0,50"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HorizontalOptions="Start"
+                                    Text="{Binding LastName}"
+                                    TextColor="White" />
+                                <Frame
+                                    x:Name="LikeFrame"
+                                    Grid.Row="1"
+                                    Padding="30,20"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="#63DD99"
+                                    CornerRadius="20"
+                                    HorizontalOptions="Center"
+                                    Opacity="0"
+                                    Rotation="-20"
+                                    VerticalOptions="Start">
+                                    <Label
+                                        x:Name="LikeText"
+                                        BackgroundColor="Transparent"
+                                        FontSize="32"
+                                        HorizontalTextAlignment="Center"
+                                        Text="LIKE"
+                                        TextColor="#63DD99"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center" />
+                                </Frame>
+                                <Frame
+                                    x:Name="NopeFrame"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Padding="30,20"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="#FF6A4F"
+                                    CornerRadius="20"
+                                    HorizontalOptions="Center"
+                                    Opacity="0"
+                                    Rotation="20"
+                                    VerticalOptions="Start">
+                                    <Label
+                                        BackgroundColor="Transparent"
+                                        FontSize="32"
+                                        HorizontalTextAlignment="Center"
+                                        Text="NOPE"
+                                        TextColor="#FF6A4F"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center" />
+                                </Frame>
+                                <StackLayout
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="10"
+                                    BindableLayout.ItemsSource="{Binding Tags, Converter={StaticResource StringToTagsConverter}}"
+                                    HorizontalOptions="Center"
+                                    Orientation="Horizontal"
+                                    VerticalOptions="End">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <yummy:PancakeView BackgroundColor="White" CornerRadius="10">
+                                                <Label
+                                                    Margin="15,5"
+                                                    BackgroundColor="Transparent"
+                                                    FontAttributes="Bold"
+                                                    LineBreakMode="TailTruncation"
+                                                    Text="{Binding .}"
+                                                    TextColor="Black" />
+                                            </yummy:PancakeView>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </Grid>
+                        </yummy:PancakeView>
                     </DataTemplate>
                 </swipeCardView:SwipeCardView.ItemTemplate>
             </swipeCardView:SwipeCardView>
+            <StackLayout
+                Padding="10,10,10,20"
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="30">
+                <StackLayout>
+                    <Button
+                        x:Name="nopeButton"
+                        BackgroundColor="#08032D"
+                        CornerRadius="30"
+                        HeightRequest="60"
+                        Scale="1"
+                        Text="N"
+                        TextColor="White"
+                        WidthRequest="60" />
+                </StackLayout>
+                <StackLayout>
+                    <Button
+                        x:Name="likeButton"
+                        BackgroundColor="#08032D"
+                        CornerRadius="30"
+                        HeightRequest="60"
+                        Scale="1"
+                        Text="L"
+                        TextColor="White"
+                        WidthRequest="60" />
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

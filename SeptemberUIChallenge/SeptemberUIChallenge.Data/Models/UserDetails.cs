@@ -23,11 +23,11 @@ namespace SeptemberUIChallenge.Data.Models
             FirstName = response.FirstName,
             LastName = response.LastName,
             Avatar = response.Avatar,
+            //this is never should be here in real project, but we have luck of data
             Details = Faker.Lorem.Paragraph(),
             Tags = string.Join(",", new []
             {
                 Faker.Hacker.Adjective(), Faker.Hacker.Adjective(), Faker.Hacker.Adjective(),
-                Faker.Hacker.Adjective(), Faker.Hacker.Adjective(), Faker.Hacker.Adjective()
             })
         };
 
