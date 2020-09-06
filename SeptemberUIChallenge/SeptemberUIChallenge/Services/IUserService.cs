@@ -6,7 +6,7 @@ namespace SeptemberUIChallenge.Services
 {
     public interface IUserService
     {
-        Task<List<UserDetails>> GetUserList(int page);
+        Task<List<UserDetails>> GetUserList();
         void SaveFavouriteUser(UserDetails user);
     }
 }

@@ -22,6 +22,7 @@
                 ItemsSource="{Binding Users}"
                 SupportedDraggingDirections="Left,Right"
                 SupportedSwipeDirections="Left,Right"
+                LoopCards="True"
                 DraggingCommand="{Binding CardDraggingCommand}"
                 VerticalOptions="FillAndExpand">
                 <swipeCardView:SwipeCardView.ItemTemplate>

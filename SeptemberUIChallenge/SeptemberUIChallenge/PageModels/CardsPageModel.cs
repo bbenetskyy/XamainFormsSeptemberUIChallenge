@@ -16,10 +16,6 @@ namespace SeptemberUIChallenge.PageModels
 
         #region Fields
 
-        private const int MinPage = 1;//taken from API
-        private const int MaxPage = 2;//taken from API
-        private int _page;
-        
         #endregion Fields
 
         #region Constructor
@@ -48,12 +44,6 @@ namespace SeptemberUIChallenge.PageModels
         public Command<DraggingCardEventArgs> CardDraggingCommand { get; }
         
         #endregion Commands
-        
-        #region Public Methods
-        
-        
-        
-        #endregion Public Methods
         
         #region Private Methods
 
@@ -84,7 +74,7 @@ namespace SeptemberUIChallenge.PageModels
             {
                 IsBusy = true;
                 Users.Clear();
-                var users = await _userService.GetUserList(GetPageNumber());
+                var users = await _userService.GetUserList();
                 users.ForEach(Users.Add);
             }
             catch (Exception e)
@@ -97,15 +87,6 @@ namespace SeptemberUIChallenge.PageModels
             {
                 IsBusy = false;
             }
-        }
-
-        private int GetPageNumber()
-        {
-            if (_page < MinPage || _page > MaxPage)
-                _page = MinPage;
-            else
-                _page++;
-            return _page;
         }
 
         #endregion Private Methods

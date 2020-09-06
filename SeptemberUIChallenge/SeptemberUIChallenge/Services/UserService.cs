@@ -20,9 +20,9 @@ namespace SeptemberUIChallenge.Services
             _userRepository = userRepository;
         }
         
-        public async Task<List<UserDetails>> GetUserList(int page)
+        public async Task<List<UserDetails>> GetUserList()
         {
-            var usersResponse = await _userApi.GetUsers(page);
+            var usersResponse = await _userApi.GetUsers();
             return usersResponse.Data.Select(u=>(UserDetails)u).ToList();
         }
 
