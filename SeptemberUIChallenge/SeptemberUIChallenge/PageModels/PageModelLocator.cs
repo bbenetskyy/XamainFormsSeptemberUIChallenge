@@ -5,7 +5,9 @@ namespace SeptemberUIChallenge.PageModels
 {
     public class PageModelLocator
     {
-        public WelcomePageModel WelcomePageModel => new WelcomePageModel(DependencyService.Get<ILoginService>());
+        public WelcomePageModel WelcomePageModel => new WelcomePageModel(
+            DependencyService.Get<ILoginService>(),
+            DependencyService.Get<ISecureStorage>());
         public CardsPageModel CardsPageModel => new CardsPageModel();
         public StatisticsPageModel StatisticsPageModel => new StatisticsPageModel();
         public FavouritesPageModel FavouritesPageModel => new FavouritesPageModel();

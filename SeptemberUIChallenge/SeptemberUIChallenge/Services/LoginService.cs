@@ -12,7 +12,7 @@ namespace SeptemberUIChallenge.Services
             _loginApi = loginApi;
         }
         
-        public Task Login(string email, string password)
+        public Task<string> Login(string email, string password)
         {
             var requestModel = new LoginRequest
             {
@@ -22,7 +22,7 @@ namespace SeptemberUIChallenge.Services
             return _loginApi.Login(requestModel);
         }
 
-        public Task Register(string email, string password)
+        public Task<string> Register(string email, string password)
         {
             var requestModel = new LoginRequest
             {

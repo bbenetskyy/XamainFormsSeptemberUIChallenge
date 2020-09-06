@@ -12,6 +12,7 @@ namespace SeptemberUIChallenge
         public static void RegisterTypes()
         {
             DependencyService.RegisterSingleton<IDatabaseProvider>(new InMemoryDatabaseProvider());
+            DependencyService.RegisterSingleton<ISecureStorage>(new SecureStorage());
             DependencyService.RegisterSingleton<ILoginApi>(RestService.For<ILoginApi>("https://reqres.in"));
             DependencyService.RegisterSingleton<IUserApi>(RestService.For<IUserApi>("https://reqres.in"));
             DependencyService.RegisterSingleton<ILoginService>(new LoginService(

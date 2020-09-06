@@ -4,7 +4,7 @@ namespace SeptemberUIChallenge.Services
 {
     public interface ILoginService
     {
-        Task Login(string email, string password);
-        Task Register(string email, string password);
+        Task<string> Login(string email, string password);
+        Task<string> Register(string email, string password);
     }
 }

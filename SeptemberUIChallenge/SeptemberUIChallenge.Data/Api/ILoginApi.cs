@@ -7,9 +7,9 @@ namespace SeptemberUIChallenge.Data.Api
     public interface ILoginApi
     {
         [Post("/api/register")]
-        Task Register([Body] LoginRequest request);
+        Task<string> Register([Body] LoginRequest request);
         
         [Post("/api/login")]
-        Task Login([Body] LoginRequest request);
+        Task<string> Login([Body] LoginRequest request);
     }
 }

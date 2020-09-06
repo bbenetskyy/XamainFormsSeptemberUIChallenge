@@ -9,8 +9,8 @@
              BindingContext="{Binding WelcomePageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Email" Text="{Binding Email}"/>
-            <Entry Placeholder="Password" Text="{Binding Password}"/>
+            <Entry Placeholder="Email" Text="{Binding LoginModel.Email}"/>
+            <Entry Placeholder="Password" Text="{Binding LoginModel.Password}"/>
             <Button Text="Login" Command="{Binding LoginCommand}"/>
             <Button Text="Register" Command="{Binding RegisterCommand}"/>
             <Label TextDecorations="Underline" Text="Back">
