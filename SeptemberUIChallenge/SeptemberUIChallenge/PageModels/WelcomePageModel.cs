@@ -94,7 +94,8 @@ namespace SeptemberUIChallenge.PageModels
                     Login => _loginService.Login(LoginModel.Email,LoginModel.Password),
                     _ => throw new ArgumentOutOfRangeException(nameof(_loginMode))
                 });
-                await _storage.SetAsync(nameof(token),token);
+               //in real app we might store this token and use in future requests, but our API never need it
+               //await _storage.SetAsync(nameof(token),token);
                 Application.Current.MainPage = new AppShell();
             }
             catch (Exception e)

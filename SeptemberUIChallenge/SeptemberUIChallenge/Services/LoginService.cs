@@ -12,24 +12,24 @@ namespace SeptemberUIChallenge.Services
             _loginApi = loginApi;
         }
         
-        public Task<string> Login(string email, string password)
+        public async Task<string> Login(string email, string password)
         {
             var requestModel = new LoginRequest
             {
                 Email = email,
                 Password = password
             };
-            return _loginApi.Login(requestModel);
+            return (await _loginApi.Login(requestModel)).Token;
         }
 
-        public Task<string> Register(string email, string password)
+        public async Task<string> Register(string email, string password)
         {
             var requestModel = new LoginRequest
             {
                 Email = email,
                 Password = password
             };
-            return _loginApi.Register(requestModel);
+            return (await _loginApi.Register(requestModel)).Token;
         }
     }
 }

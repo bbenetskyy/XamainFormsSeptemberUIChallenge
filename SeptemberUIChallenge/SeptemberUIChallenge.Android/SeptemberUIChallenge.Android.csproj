@@ -14,7 +14,6 @@
         <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
         <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
         <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-        <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
         <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
         <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     </PropertyGroup>
@@ -79,7 +78,7 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\SeptemberUIChallenge\SeptemberUIChallenge.csproj">
-            <Project>{002AF103-AF29-48D5-A449-C1BA030267D1}</Project>
+            <Project>{5D3C88BD-6429-4F73-9031-81454C85A92A}</Project>
             <Name>SeptemberUIChallenge</Name>
         </ProjectReference>
     </ItemGroup>
