@@ -32,7 +32,6 @@
             <ScrollView>
                 <StackLayout
                     Margin="5,10"
-                    Background="Transparent"
                     BindableLayout.ItemsSource="{Binding Users}"
                     Spacing="10">
                     <BindableLayout.ItemTemplate>
@@ -45,7 +44,11 @@
                                 ExpandAnimationLength="500">
                                 <Expander.Header>
                                     <Grid ColumnDefinitions="auto,*" RowDefinitions="auto,*">
-                                        <Image Grid.RowSpan="2" Source="{Binding Avatar}">
+                                        <Image
+                                            Grid.RowSpan="2"
+                                            HeightRequest="50"
+                                            Source="{Binding Avatar}"
+                                            WidthRequest="50">
                                             <Image.Clip>
                                                 <EllipseGeometry
                                                     Center="25,25"
@@ -84,10 +87,19 @@
                                                 Aspect="AspectFill"
                                                 HeightRequest="120"
                                                 Source="{Binding Avatar}"
-                                                WidthRequest="120" />
+                                                WidthRequest="120">
+                                                <Image.Clip>
+                                                    <EllipseGeometry
+                                                        Center="60,60"
+                                                        RadiusX="80"
+                                                        RadiusY="80" />
+                                                </Image.Clip>
+                                            </Image>
                                             <Label
                                                 Grid.Column="1"
                                                 FontAttributes="Italic"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="7"
                                                 Text="{Binding Details}" />
                                         </Grid>
                                     </DataTemplate>

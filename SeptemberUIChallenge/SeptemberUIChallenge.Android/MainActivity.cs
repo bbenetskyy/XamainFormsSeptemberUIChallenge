@@ -18,8 +18,7 @@ namespace SeptemberUIChallenge.Android
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
-            Xamarin.Forms.Forms.SetFlags("Expander_Experimental");
-            Xamarin.Forms.Forms.SetFlags("Shapes_Experimental");
+            Xamarin.Forms.Forms.SetFlags("Shapes_Experimental", "Expander_Experimental");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
