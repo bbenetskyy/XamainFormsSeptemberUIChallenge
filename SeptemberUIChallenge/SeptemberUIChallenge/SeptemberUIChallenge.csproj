@@ -35,10 +35,6 @@
         <SubType>Designer</SubType>
         <Generator></Generator>
       </EmbeddedResource>
-      <EmbeddedResource Update="Pages\MainPage.xaml">
-        <SubType>Designer</SubType>
-        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      </EmbeddedResource>
       <EmbeddedResource Update="Pages\WelcomePage.xaml">
         <SubType>Designer</SubType>
         <Generator></Generator>
@@ -60,10 +56,6 @@
     <ItemGroup>
       <Compile Update="AppShell.xaml.cs">
         <DependentUpon>AppShell.xaml</DependentUpon>
-      </Compile>
-      <Compile Update="Pages\MainPage.xaml.cs">
-        <DependentUpon>MainPage.xaml</DependentUpon>
-        <SubType>Code</SubType>
       </Compile>
       <Compile Update="Pages\WelcomePage.xaml.cs">
         <DependentUpon>WelcomePage.xaml</DependentUpon>

@@ -1,11 +1,19 @@
 using System;
 using System.Diagnostics;
 using Realms;
+using SeptemberUIChallenge.Data.Logger;
 
 namespace SeptemberUIChallenge.Data.Infrastructure
 {
     public class InMemoryDatabaseProvider : IDatabaseProvider
     {
+        private readonly ILogger _logger;
+
+        public InMemoryDatabaseProvider(ILogger logger)
+        {
+            _logger = logger;
+        }
+        
         public Realm GetInstance()
         {
             try
@@ -15,9 +23,7 @@ namespace SeptemberUIChallenge.Data.Infrastructure
             }
             catch (Exception e)
             {
-                //in real app it should be replaced with logger
-                Debug.WriteLine(e.Message);
-                Debug.WriteLine(e.StackTrace);
+                _logger.LogError(e);
                 throw;
             }
         }

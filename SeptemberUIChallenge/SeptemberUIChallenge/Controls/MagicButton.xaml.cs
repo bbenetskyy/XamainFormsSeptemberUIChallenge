@@ -33,8 +33,8 @@ namespace SeptemberUIChallenge.Controls
 
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
         #endregion Text
@@ -119,8 +119,8 @@ namespace SeptemberUIChallenge.Controls
 
         public float CornerRadius
         {
-            get { return (float)GetValue(CornerRadiusProperty); }
-            set { SetValue(CornerRadiusProperty, value); }
+            get => (float)GetValue(CornerRadiusProperty);
+            set => SetValue(CornerRadiusProperty, value);
         }
 
         #endregion CornerRadius

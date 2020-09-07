@@ -22,8 +22,11 @@
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate pages:FavouritesPage}" />
         </Tab>
-        <!--<Tab Title="Statistics">
+        <!--
+        todo later, eh later....
+        <Tab Title="Statistics">
                      <ShellContent ContentTemplate="{DataTemplate pages:StatisticsPage}"/>
-              </Tab>-->
+              </Tab>
+        -->
     </FlyoutItem>
 </Shell>

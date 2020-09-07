@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using SeptemberUIChallenge.Commands;
+using SeptemberUIChallenge.Data.Logger;
 using SeptemberUIChallenge.Data.Models;
 using SeptemberUIChallenge.Models;
 using SeptemberUIChallenge.Services;
@@ -14,12 +15,11 @@ namespace SeptemberUIChallenge.PageModels
 {
     public class WelcomePageModel : BasePageModel
     {
-        private readonly ISecureStorage _storage;
-
         #region Fields
         
         private readonly ILoginService _loginService;
         private readonly LoginValidator _validator;
+        private readonly ISecureStorage _storage;
 
         private LoginMode _loginMode;
 
@@ -29,7 +29,8 @@ namespace SeptemberUIChallenge.PageModels
 
         public WelcomePageModel(
             ILoginService loginService,
-            ISecureStorage storage)
+            ISecureStorage storage,
+            ILogger logger) : base(logger)
         {
             _storage = storage;
             _loginService = loginService;
@@ -53,15 +54,9 @@ namespace SeptemberUIChallenge.PageModels
 
         public IAsyncCommand LoginCommand { get; }
         public IAsyncCommand RegisterCommand { get; }
-        
         public IAsyncCommand SwitchTypeCommand { get; }
         
         #endregion Commands
-        
-        #region Public Methods
-        
-        
-        #endregion Public Methods
         
         #region Private Methods
         
@@ -100,9 +95,7 @@ namespace SeptemberUIChallenge.PageModels
             }
             catch (Exception e)
             {
-                //in real app it should be replaced with logger
-                Debug.WriteLine(e.Message);
-                Debug.WriteLine(e.StackTrace);
+               Logger.LogError(e);
             }
         }
 

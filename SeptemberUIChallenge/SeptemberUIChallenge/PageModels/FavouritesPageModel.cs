@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using SeptemberUIChallenge.Commands;
+using SeptemberUIChallenge.Data.Logger;
 using SeptemberUIChallenge.Data.Models;
 using SeptemberUIChallenge.Services;
 
@@ -10,16 +11,17 @@ namespace SeptemberUIChallenge.PageModels
 {
     public class FavouritesPageModel : BasePageModel
     {
-        private readonly IUserService _userService;
-
         #region Fields
+        
+        private readonly IUserService _userService;
 
         #endregion Fields
 
         #region Constructor
 
         public FavouritesPageModel(
-            IUserService userService)
+            IUserService userService,
+            ILogger logger) : base(logger)
         {
             _userService = userService;
             Users = new ObservableCollection<UserDetails>();
@@ -30,7 +32,6 @@ namespace SeptemberUIChallenge.PageModels
 
         #region Properties
 
-        public bool IsBusy { get; set; }
         public ObservableCollection<UserDetails> Users { get; }
 
         #endregion Properties
@@ -38,14 +39,8 @@ namespace SeptemberUIChallenge.PageModels
         #region Commands
         
         public IAsyncCommand PageAppearingCommand { get; }
-
         
         #endregion Commands
-        
-        #region Public Methods
-        
-        
-        #endregion Public Methods
         
         #region Private Methods
         
@@ -60,9 +55,7 @@ namespace SeptemberUIChallenge.PageModels
             }
             catch (Exception e)
             {
-                //in real app it should be replaced with logger
-                Debug.WriteLine(e.Message);
-                Debug.WriteLine(e.StackTrace);
+               Logger.LogError(e);
             }
             finally
             {
@@ -71,6 +64,5 @@ namespace SeptemberUIChallenge.PageModels
         }
         
         #endregion Private Methods
-
     }
 }

@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Refit;
-using SeptemberUIChallenge.Data.Models;
 
 namespace SeptemberUIChallenge.Data.Api
 {

@@ -20,7 +20,7 @@
             <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
         </behaviors:EventHandlerBehavior>
     </ContentPage.Behaviors>
-
+    
     <ContentPage.Content>
         <Grid>
             <StackLayout>
@@ -33,80 +33,8 @@
                     LoopCards="True"
                     SupportedDraggingDirections="Left,Right"
                     SupportedSwipeDirections="Left,Right"
-                    VerticalOptions="FillAndExpand">
-                    <swipeCardView:SwipeCardView.ItemTemplate>
-                        <DataTemplate x:DataType="models:UserDetails">
-                            <yummy:PancakeView CornerRadius="30">
-                                <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*">
-                                    <Image
-                                        Grid.Row="0"
-                                        Grid.RowSpan="2"
-                                        Grid.Column="0"
-                                        Grid.ColumnSpan="2"
-                                        Aspect="AspectFill"
-                                        Source="{Binding Avatar}" />
-                                    <Label
-                                        Margin="0,20"
-                                        FontAttributes="Bold"
-                                        FontSize="36"
-                                        HorizontalOptions="End"
-                                        Text="{Binding FirstName}"
-                                        TextColor="White" />
-                                    <Label
-                                        Grid.Column="1"
-                                        Margin="0,20"
-                                        FontAttributes="Bold"
-                                        FontSize="36"
-                                        HorizontalOptions="Start"
-                                        Text="{Binding LastName}"
-                                        TextColor="White" />
-                                    <Frame
-                                        x:Name="LikeFrame"
-                                        Grid.Row="1"
-                                        Padding="20,10"
-                                        BackgroundColor="Transparent"
-                                        BorderColor="White"
-                                        CornerRadius="20"
-                                        HorizontalOptions="Center"
-                                        Opacity="0"
-                                        Rotation="-20"
-                                        VerticalOptions="Start">
-                                        <Label
-                                            x:Name="LikeText"
-                                            BackgroundColor="Transparent"
-                                            FontSize="32"
-                                            HorizontalTextAlignment="Center"
-                                            Text="LIKE"
-                                            TextColor="Red"
-                                            VerticalOptions="CenterAndExpand"
-                                            VerticalTextAlignment="Center" />
-                                    </Frame>
-                                    <Frame
-                                        x:Name="NopeFrame"
-                                        Grid.Row="1"
-                                        Grid.Column="1"
-                                        Padding="20,10"
-                                        BackgroundColor="Transparent"
-                                        BorderColor="Red"
-                                        CornerRadius="20"
-                                        HorizontalOptions="Center"
-                                        Opacity="0"
-                                        Rotation="20"
-                                        VerticalOptions="Start">
-                                        <Label
-                                            BackgroundColor="Transparent"
-                                            FontSize="32"
-                                            HorizontalTextAlignment="Center"
-                                            Text="NOPE"
-                                            TextColor="White"
-                                            VerticalOptions="CenterAndExpand"
-                                            VerticalTextAlignment="Center" />
-                                    </Frame>
-                                </Grid>
-                            </yummy:PancakeView>
-                        </DataTemplate>
-                    </swipeCardView:SwipeCardView.ItemTemplate>
-                </swipeCardView:SwipeCardView>
+                    VerticalOptions="FillAndExpand"
+                    ItemTemplate="{StaticResource UserCard}"/>
                 <StackLayout
                     Padding="10,10,10,20"
                     HorizontalOptions="Center"

@@ -10,17 +10,6 @@
     ios:Page.UseSafeArea="true"
     BindingContext="{Binding WelcomePageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}"
     Visual="Material">
-    <!--  todo move it to global stylesz  -->
-    <!--  todo add icons with icon font  -->
-    <ContentPage.Resources>
-        <Style x:Key="LoginEntry" TargetType="Entry">
-            <Setter Property="TextColor" Value="White" />
-        </Style>
-        <Style x:Key="LoginLabel" TargetType="Label">
-            <Setter Property="TextColor" Value="White" />
-        </Style>
-        <Style x:Key="LoginButton" TargetType="Button" />
-    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <magic:GradientView>

@@ -13,7 +13,7 @@
     <forms:AnimationView
         Animation="{OnPlatform Default=loading_animation.json,
                                iOS=ios_loading_animation.json}"
-        AutoPlay="True"
+        IsPlaying="True"
         HeightRequest="200"
         HorizontalOptions="FillAndExpand"
         Loop="True"

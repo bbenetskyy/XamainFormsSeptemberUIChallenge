@@ -24,6 +24,7 @@ namespace SeptemberUIChallenge.Services
 
         public async Task<List<UserDetails>> GetAllFavouritesUsers()
         {
+            //just for UI, because it's demo app, never do it in real app
             await Task.Delay(TimeSpan.FromSeconds(3));
             return _userRepository.GetAllFavouritesUsers().ToList();
         }
