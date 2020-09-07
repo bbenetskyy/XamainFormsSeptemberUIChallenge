@@ -42,17 +42,17 @@
                                     Aspect="AspectFill"
                                     Source="{Binding Avatar}" />
                                 <Label
-                                    Margin="0,50"
+                                    Margin="0,20"
                                     FontAttributes="Bold"
-                                    FontSize="Large"
+                                    FontSize="36"
                                     HorizontalOptions="End"
                                     Text="{Binding FirstName}"
                                     TextColor="White" />
                                 <Label
                                     Grid.Column="1"
-                                    Margin="0,50"
+                                    Margin="0,20"
                                     FontAttributes="Bold"
-                                    FontSize="Large"
+                                    FontSize="36"
                                     HorizontalOptions="Start"
                                     Text="{Binding LastName}"
                                     TextColor="White" />

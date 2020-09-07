@@ -54,26 +54,22 @@
                                 <magic:CssGradientSource>
                                     <x:String>
                                         <![CDATA[
-               repeating-linear-gradient(90deg, rgba(178, 178, 178, 0.07) 0px, rgba(178, 178, 178, 0.07) 29px, rgba(5, 5, 5, 0.07) 29px, rgba(5, 5, 5, 0.07) 69px, rgba(146, 146, 146, 0.07) 69px, rgba(146, 146, 146, 0.07) 111px, rgba(141, 141, 141, 0.07) 111px, rgba(141, 141, 141, 0.07) 122px, rgba(86, 86, 86, 0.07) 122px, rgba(86, 86, 86, 0.07) 145px), repeating-linear-gradient(90deg, rgba(57, 57, 57, 0.07) 0px, rgba(57, 57, 57, 0.07) 32px, rgba(249, 249, 249, 0.07) 32px, rgba(249, 249, 249, 0.07) 80px, rgba(47, 47, 47, 0.07) 80px, rgba(47, 47, 47, 0.07) 95px, rgba(95, 95, 95, 0.07) 95px, rgba(95, 95, 95, 0.07) 133px, rgba(34, 34, 34, 0.07) 133px, rgba(34, 34, 34, 0.07) 168px), repeating-linear-gradient(90deg, rgba(22, 22, 22, 0.1) 0px, rgba(22, 22, 22, 0.1) 147px, rgba(12, 12, 12, 0.1) 147px, rgba(12, 12, 12, 0.1) 244px, rgba(22, 22, 22, 0.1) 244px, rgba(22, 22, 22, 0.1) 325px, rgba(46, 46, 46, 0.1) 325px, rgba(46, 46, 46, 0.1) 429px, rgba(179, 179, 179, 0.1) 429px, rgba(179, 179, 179, 0.1) 572px), repeating-linear-gradient(90deg, rgba(126, 126, 126, 0.1) 0px, rgba(126, 126, 126, 0.1) 82px, rgba(22, 22, 22, 0.1) 82px, rgba(22, 22, 22, 0.1) 150px, rgba(0, 0, 0, 0.1) 150px, rgba(0, 0, 0, 0.1) 240px, rgba(124, 124, 124, 0.1) 240px, rgba(124, 124, 124, 0.1) 374px, rgba(2, 2, 2, 0.1) 374px, rgba(2, 2, 2, 0.1) 435px), linear-gradient(90deg, rgb(191, 34, 216), rgb(34, 13, 81))
-            ]]>
-                                    </x:String>
-                                </magic:CssGradientSource>
-                            </controls:MagicButton.CssGradientSource>
-                        </controls:MagicButton>
-                        <controls:MagicButton
-                            Command="{Binding RegisterCommand}"
-                            Text="Register"
-                            WidthRequest="150">
-                            <controls:MagicButton.CssGradientSource>
-                                <magic:CssGradientSource>
-                                    <x:String>
-                                        <![CDATA[
                radial-gradient(circle at center, rgb(80, 32, 84), rgb(62, 35, 81), rgb(44, 38, 79), rgb(26, 40, 76), rgb(8, 43, 73))
             ]]>
                                     </x:String>
                                 </magic:CssGradientSource>
                             </controls:MagicButton.CssGradientSource>
                         </controls:MagicButton>
+
+                        <Button
+                            Background="Transparent"
+                            BorderColor="White"
+                            BorderWidth="1"
+                            Command="{Binding RegisterCommand}"
+                            CornerRadius="15"
+                            Text="Register"
+                            TextColor="White"
+                            WidthRequest="150" />
                     </StackLayout>
                     <Label
                         Margin="0,50,0,0"

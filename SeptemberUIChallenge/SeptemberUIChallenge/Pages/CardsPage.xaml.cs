@@ -16,7 +16,8 @@ namespace SeptemberUIChallenge.Pages
             var view = (View)sender;
             var nopeFrame = view.FindByName<Frame>("NopeFrame");
             var likeFrame = view.FindByName<Frame>("LikeFrame");
-            //todo refactor this shit
+
+            //todo refactor this shit - use enum for this, like status???
             switch (args.Position)
             {
                 case DraggingCardPosition.Start:

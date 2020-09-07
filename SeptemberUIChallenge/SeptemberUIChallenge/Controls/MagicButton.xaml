@@ -11,7 +11,7 @@
             Padding="0"
             HasShadow="False">
             <Grid>
-                <magic:GradientView x:Name="GradientView" />
+                <magic:GradientView x:Name="GradientView" Margin="-2" />
                 <Button x:Name="ActionButton" Background="Transparent" />
             </Grid>
         </Frame>
