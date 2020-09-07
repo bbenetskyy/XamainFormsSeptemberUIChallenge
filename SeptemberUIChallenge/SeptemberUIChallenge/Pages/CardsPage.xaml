@@ -10,7 +10,8 @@
     xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     ios:Page.UseSafeArea="true"
-    BindingContext="{Binding CardsPageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}">
+    BindingContext="{Binding CardsPageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}"
+    ControlTemplate="{StaticResource TabsBackgoundTemplate}">
 
     <ContentPage.Behaviors>
         <behaviors:EventHandlerBehavior EventName="Appearing">
