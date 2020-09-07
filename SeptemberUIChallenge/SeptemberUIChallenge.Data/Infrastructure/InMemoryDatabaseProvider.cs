@@ -10,7 +10,7 @@ namespace SeptemberUIChallenge.Data.Infrastructure
         {
             try
             {
-                var config = new InMemoryConfiguration(Guid.NewGuid().ToString());
+                var config = new InMemoryConfiguration("9245fe4a-d402-451c-b9ed-9c1a04247482");
                 return Realm.GetInstance(config);
             }
             catch (Exception e)

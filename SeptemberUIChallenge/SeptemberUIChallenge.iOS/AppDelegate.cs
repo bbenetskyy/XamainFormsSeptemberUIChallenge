@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Foundation;
+﻿using Foundation;
+using Lottie.Forms.iOS.Renderers;
 using UIKit;
 
 namespace SeptemberUIChallenge.iOS
@@ -24,6 +22,7 @@ namespace SeptemberUIChallenge.iOS
             Xamarin.Forms.Forms.SetFlags("Shapes_Experimental", "Expander_Experimental");
             Xamarin.Forms.Forms.Init();
             Xamarin.Forms.FormsMaterial.Init();
+            AnimationViewRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

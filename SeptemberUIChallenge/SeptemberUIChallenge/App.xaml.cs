@@ -11,7 +11,7 @@ namespace SeptemberUIChallenge
         {
             InitializeComponent();
             IoC.RegisterTypes();
-            //MainPage = new WelcomePage();
+            // MainPage = new WelcomePage();
             MainPage = new AppShell();
         }
     }

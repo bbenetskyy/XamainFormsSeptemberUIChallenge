@@ -14,7 +14,6 @@ namespace SeptemberUIChallenge.Data.Models
         public string LastName { get; set; }
         public string Avatar { get; set; }
         public string Details { get; set; }
-        public string Tags { get; set; }
 
         public static implicit operator UserDetails(UserDetailsResponse response) => new UserDetails
         {
@@ -24,11 +23,7 @@ namespace SeptemberUIChallenge.Data.Models
             LastName = response.LastName,
             Avatar = response.Avatar,
             //this is never should be here in real project, but we have luck of data
-            Details = Faker.Lorem.Paragraph(),
-            Tags = string.Join(",", new []
-            {
-                Faker.Hacker.Adjective(), Faker.Hacker.Adjective(), Faker.Hacker.Adjective(),
-            })
+            Details = Faker.Lorem.Paragraph()
         };
 
     }

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using SeptemberUIChallenge.Data.Api;
@@ -19,7 +21,13 @@ namespace SeptemberUIChallenge.Services
             _userApi = userApi;
             _userRepository = userRepository;
         }
-        
+
+        public async Task<List<UserDetails>> GetAllFavouritesUsers()
+        {
+            await Task.Delay(TimeSpan.FromSeconds(3));
+            return _userRepository.GetAllFavouritesUsers().ToList();
+        }
+
         public async Task<List<UserDetails>> GetUserList()
         {
             var usersResponse = await _userApi.GetUsers();

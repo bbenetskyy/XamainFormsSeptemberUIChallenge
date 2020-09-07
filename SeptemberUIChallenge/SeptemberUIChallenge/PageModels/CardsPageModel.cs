@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace SeptemberUIChallenge.PageModels
 {
-    public class CardsPageModel
+    public class CardsPageModel : BasePageModel
     {
         private readonly IUserService _userService;
 
@@ -33,7 +33,6 @@ namespace SeptemberUIChallenge.PageModels
 
         #region Properties
 
-        public bool IsBusy { get; set; }
         public ObservableCollection<UserDetails> Users { get; }
 
         #endregion Properties
@@ -54,10 +53,6 @@ namespace SeptemberUIChallenge.PageModels
                 if (args.Direction == SwipeCardDirection.Right)
                 {
                     _userService.SaveFavouriteUser(args.Item as UserDetails);
-                }
-                else if (args.Direction == SwipeCardDirection.Left)
-                {
-                    //todo remove from collection
                 }
             }
             catch (Exception e)

@@ -8,5 +8,6 @@ namespace SeptemberUIChallenge.Services
     {
         Task<List<UserDetails>> GetUserList();
         void SaveFavouriteUser(UserDetails user);
+        Task<List<UserDetails>> GetAllFavouritesUsers();
     }
 }

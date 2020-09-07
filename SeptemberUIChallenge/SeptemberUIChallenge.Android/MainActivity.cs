@@ -1,10 +1,7 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Lottie.Forms.Droid;
 
 namespace SeptemberUIChallenge.Android
 {
@@ -22,6 +19,7 @@ namespace SeptemberUIChallenge.Android
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
+            AnimationViewRenderer.Init();
             LoadApplication(new App());
         }
     }

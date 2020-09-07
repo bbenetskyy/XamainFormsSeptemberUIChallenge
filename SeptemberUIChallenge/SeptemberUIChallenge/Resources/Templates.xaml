@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients">
+    <ControlTemplate x:Key="TabsBackgoundTemplate">
+        <Grid>
+            <magic:GradientView>
+                <magic:CssGradientSource>
+                    <x:String>
+                        <![CDATA[
+              repeating-linear-gradient(135deg, rgba(138, 138, 138, 0.03) 0px, rgba(138, 138, 138, 0.03) 21px, rgba(142, 142, 142, 0.03) 21px, rgba(142, 142, 142, 0.03) 42px, rgba(41, 41, 41, 0.03) 42px, rgba(41, 41, 41, 0.03) 89px, rgba(204, 204, 204, 0.03) 89px, rgba(204, 204, 204, 0.03) 112px, rgba(193, 193, 193, 0.03) 112px, rgba(193, 193, 193, 0.03) 133px, rgba(112, 112, 112, 0.03) 133px, rgba(112, 112, 112, 0.03) 178px, rgba(116, 116, 116, 0.03) 178px, rgba(116, 116, 116, 0.03) 204px, rgba(158, 158, 158, 0.03) 204px, rgba(158, 158, 158, 0.03) 249px), repeating-linear-gradient(135deg, rgba(101, 101, 101, 0.03) 0px, rgba(101, 101, 101, 0.03) 19px, rgba(235, 235, 235, 0.03) 19px, rgba(235, 235, 235, 0.03) 34px, rgba(160, 160, 160, 0.03) 34px, rgba(160, 160, 160, 0.03) 64px, rgba(40, 40, 40, 0.03) 64px, rgba(40, 40, 40, 0.03) 75px, rgba(162, 162, 162, 0.03) 75px, rgba(162, 162, 162, 0.03) 119px, rgba(43, 43, 43, 0.03) 119px, rgba(43, 43, 43, 0.03) 132px, rgba(52, 52, 52, 0.03) 132px, rgba(52, 52, 52, 0.03) 173px, rgba(119, 119, 119, 0.03) 173px, rgba(119, 119, 119, 0.03) 200px), repeating-linear-gradient(135deg, rgba(216, 216, 216, 0.03) 0px, rgba(216, 216, 216, 0.03) 30px, rgba(221, 221, 221, 0.03) 30px, rgba(221, 221, 221, 0.03) 42px, rgba(198, 198, 198, 0.03) 42px, rgba(198, 198, 198, 0.03) 72px, rgba(147, 147, 147, 0.03) 72px, rgba(147, 147, 147, 0.03) 115px, rgba(208, 208, 208, 0.03) 115px, rgba(208, 208, 208, 0.03) 146px, rgba(190, 190, 190, 0.03) 146px, rgba(190, 190, 190, 0.03) 164px, rgba(151, 151, 151, 0.03) 164px, rgba(151, 151, 151, 0.03) 204px, rgba(179, 179, 179, 0.03) 204px, rgba(179, 179, 179, 0.03) 229px), linear-gradient(90deg, rgb(195, 195, 195), rgb(245, 245, 245))
+          ]]>
+                    </x:String>
+                </magic:CssGradientSource>
+            </magic:GradientView>
+            <ContentPresenter />
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>
