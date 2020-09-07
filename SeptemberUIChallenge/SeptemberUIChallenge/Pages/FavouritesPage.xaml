@@ -37,42 +37,66 @@
                     Spacing="10">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:DataType="models:UserDetails">
-                            <Frame Background="White" CornerRadius="30">
-                                <Expander Margin="5">
-                                    <Expander.Header>
+                            <Expander
+                                Margin="5"
+                                CollapseAnimationEasing="{x:Static Easing.CubicOut}"
+                                CollapseAnimationLength="500"
+                                ExpandAnimationEasing="{x:Static Easing.CubicIn}"
+                                ExpandAnimationLength="500">
+                                <Expander.Header>
+                                    <Grid ColumnDefinitions="auto,*" RowDefinitions="auto,*">
+                                        <Image Grid.RowSpan="2" Source="{Binding Avatar}">
+                                            <Image.Clip>
+                                                <EllipseGeometry
+                                                    Center="25,25"
+                                                    RadiusX="20"
+                                                    RadiusY="20" />
+                                            </Image.Clip>
+                                        </Image>
+                                        <Label Grid.Column="1">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="{Binding FirstName}" />
+                                                    <Span Text=" " />
+                                                    <Span FontAttributes="Bold" Text="{Binding LastName}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
                                         <Label
-                                            Margin="5"
+                                            Grid.Row="1"
+                                            Grid.Column="1"
                                             FontAttributes="Bold"
-                                            FontSize="Medium"
-                                            Text="{Binding Email}" />
-                                    </Expander.Header>
-                                    <Expander.ContentTemplate>
-                                        <DataTemplate>
-                                            <Grid Padding="10">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto" />
-                                                    <ColumnDefinition Width="Auto" />
-                                                </Grid.ColumnDefinitions>
-                                                <Image
-                                                    Aspect="AspectFill"
-                                                    HeightRequest="120"
-                                                    Source="{Binding Avatar}"
-                                                    WidthRequest="120" />
-                                                <Label
-                                                    Grid.Column="1"
-                                                    FontAttributes="Italic"
-                                                    Text="{Binding Details}" />
-                                            </Grid>
-                                        </DataTemplate>
-                                    </Expander.ContentTemplate>
-                                </Expander>
-                            </Frame>
+                                            FontSize="Small"
+                                            Text="{Binding Email}"
+                                            TextColor="Gray"
+                                            VerticalTextAlignment="Start" />
+                                    </Grid>
+
+                                </Expander.Header>
+                                <Expander.ContentTemplate>
+                                    <DataTemplate>
+                                        <Grid Padding="10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image
+                                                Aspect="AspectFill"
+                                                HeightRequest="120"
+                                                Source="{Binding Avatar}"
+                                                WidthRequest="120" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontAttributes="Italic"
+                                                Text="{Binding Details}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </Expander.ContentTemplate>
+                            </Expander>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
             </ScrollView>
         </Grid>
-
-
     </ContentPage.Content>
 </ContentPage>

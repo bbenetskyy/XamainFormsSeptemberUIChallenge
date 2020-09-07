@@ -22,6 +22,7 @@ namespace SeptemberUIChallenge.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Xamarin.Forms.Forms.SetFlags("Expander_Experimental");
+            Xamarin.Forms.Forms.SetFlags("Shapes_Experimental");
             Xamarin.Forms.Forms.Init();
             Xamarin.Forms.FormsMaterial.Init();
             LoadApplication(new App());
