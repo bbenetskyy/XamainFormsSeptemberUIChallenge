@@ -11,10 +11,13 @@
         VerticalOptions="FillAndExpand"
         Color="Black" />
     <forms:AnimationView
-        Animation="loading_animation.json"
+        Animation="{OnPlatform Default=loading_animation.json,
+                               iOS=ios_loading_animation.json}"
         AutoPlay="True"
+        HeightRequest="200"
         HorizontalOptions="FillAndExpand"
         Loop="True"
         Speed="1"
-        VerticalOptions="FillAndExpand" />
+        VerticalOptions="FillAndExpand"
+        WidthRequest="200" />
 </Grid>
