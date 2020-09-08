@@ -7,12 +7,9 @@
     xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
     xmlns:controls="clr-namespace:SeptemberUIChallenge.Controls;assembly=SeptemberUIChallenge"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
-    xmlns:models="clr-namespace:SeptemberUIChallenge.Data.Models;assembly=SeptemberUIChallenge.Data"
-    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     ios:Page.UseSafeArea="true"
     BindingContext="{Binding FavouritesPageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}"
-    ControlTemplate="{StaticResource TabsBackgoundTemplate}">
+    ControlTemplate="{StaticResource TabsBackgroundTemplate}">
 
     <ContentPage.Behaviors>
         <behaviors:EventHandlerBehavior EventName="Appearing">

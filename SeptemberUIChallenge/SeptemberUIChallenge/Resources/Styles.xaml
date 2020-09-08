@@ -22,5 +22,68 @@
     </Style>
     <Style x:Key="LoginLabel" TargetType="Label">
         <Setter Property="TextColor" Value="White" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style x:Key="TitleLabel"
+           TargetType="Label">
+        <Setter Property="Margin" Value="0,20"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="TextColor" Value="White"/>
+    </Style>
+    <Style x:Key="EmotionFrame"
+           TargetType="Frame">
+        <Setter Property="Padding" Value="20,10"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Opacity" Value="0"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+    </Style>
+    <Style x:Key="EmotionLabel"
+           TargetType="Label">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="HeaderImage"
+           TargetType="Image">
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="WidthRequest" Value="50"/>
+    </Style>
+    <Style x:Key="HeaderSubTitle"
+           TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="Small"/>
+        <Setter Property="TextColor" Value="Gray"/>
+        <Setter Property="VerticalTextAlignment" Value="Start"/>
+    </Style>
+    <Style x:Key="ContentImage"
+           TargetType="Image">
+        <Setter Property="Aspect" Value="AspectFill"/>
+        <Setter Property="HeightRequest" Value="120"/>
+        <Setter Property="WidthRequest" Value="120"/>
+    </Style>
+    <Style x:Key="ContentDetails"
+           TargetType="Label">
+        <Setter Property="FontAttributes" Value="Italic"/>
+        <Setter Property="LineBreakMode" Value="TailTruncation"/>
+        <Setter Property="MaxLines" Value="5"/>
+    </Style>
+    <Style x:Key="ImageFrame"
+           TargetType="Frame">
+        <Setter Property="CornerRadius" Value="30"/>
+        <Setter Property="HasShadow" Value="False"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="IsClippedToBounds" Value="True"/>
+    </Style>
+    <Style x:Key="WhiteRoundButton"
+           TargetType="Button">
+        <Setter Property="BorderColor" Value="White"/>
+        <Setter Property="BorderWidth" Value="1"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="TextColor" Value="White"/>
     </Style>
 </ResourceDictionary>

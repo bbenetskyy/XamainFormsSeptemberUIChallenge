@@ -5,12 +5,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
-    xmlns:controls="clr-namespace:SeptemberUIChallenge.Controls;assembly=SeptemberUIChallenge"
     xmlns:font="clr-namespace:SeptemberUIChallenge.Resources.Fonts;assembly=SeptemberUIChallenge"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:models="clr-namespace:SeptemberUIChallenge.Data.Models;assembly=SeptemberUIChallenge.Data"
     xmlns:swipeCardView="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView"
-    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     ios:Page.UseSafeArea="true"
     BindingContext="{Binding CardsPageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}"
     ControlTemplate="{StaticResource TabsBackgroundTemplate}">

@@ -23,7 +23,7 @@
         </Grid>
     </ControlTemplate>
     <DataTemplate x:Key="UserCardTemplate" x:DataType="models:UserDetails">
-        <Frame CornerRadius="30" HasShadow="False" Padding="0" IsClippedToBounds="True">
+        <Frame Style="{StaticResource ImageFrame}">
             <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*">
                 <Image
                     Grid.Row="0"
@@ -33,61 +33,36 @@
                     Aspect="AspectFill"
                     Source="{Binding Avatar}" />
                 <Label
-                    Margin="0,20"
-                    FontAttributes="Bold"
-                    FontSize="36"
+                    Style="{StaticResource TitleLabel}"
                     HorizontalOptions="End"
-                    Text="{Binding FirstName}"
-                    TextColor="White" />
+                    Text="{Binding FirstName}" />
                 <Label
                     Grid.Column="1"
-                    Margin="0,20"
-                    FontAttributes="Bold"
-                    FontSize="36"
+                    Style="{StaticResource TitleLabel}"
                     HorizontalOptions="Start"
-                    Text="{Binding LastName}"
-                    TextColor="White" />
+                    Text="{Binding LastName}" />
                 <Frame
                     x:Name="LikeFrame"
+                    Style="{StaticResource EmotionFrame}"
                     Grid.Row="1"
-                    Padding="20,10"
-                    BackgroundColor="Transparent"
                     BorderColor="White"
-                    CornerRadius="20"
-                    HorizontalOptions="Center"
-                    Opacity="0"
-                    Rotation="-20"
-                    VerticalOptions="Start">
+                    Rotation="-20">
                     <Label
-                        x:Name="LikeText"
-                        BackgroundColor="Transparent"
-                        FontSize="32"
-                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource EmotionLabel}"
                         Text="{x:Static resources:AppResources.Like}"
-                        TextColor="Red"
-                        VerticalOptions="CenterAndExpand"
-                        VerticalTextAlignment="Center" />
+                        TextColor="Red" />
                 </Frame>
                 <Frame
                     x:Name="NopeFrame"
+                    Style="{StaticResource EmotionFrame}"
                     Grid.Row="1"
                     Grid.Column="1"
-                    Padding="20,10"
-                    BackgroundColor="Transparent"
                     BorderColor="Red"
-                    CornerRadius="20"
-                    HorizontalOptions="Center"
-                    Opacity="0"
-                    Rotation="20"
-                    VerticalOptions="Start">
+                    Rotation="20">
                     <Label
-                        BackgroundColor="Transparent"
-                        FontSize="32"
-                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource EmotionLabel}"
                         Text="{x:Static resources:AppResources.Nope}"
-                        TextColor="White"
-                        VerticalOptions="CenterAndExpand"
-                        VerticalTextAlignment="Center" />
+                        TextColor="White" />
                 </Frame>
             </Grid>
         </Frame>
@@ -102,10 +77,9 @@
             <Expander.Header>
                 <Grid ColumnDefinitions="auto,*" RowDefinitions="auto,*">
                     <Image
+                        Style="{StaticResource HeaderImage}"
                         Grid.RowSpan="2"
-                        HeightRequest="50"
-                        Source="{Binding Avatar}"
-                        WidthRequest="50">
+                        Source="{Binding Avatar}">
                         <Image.Clip>
                             <EllipseGeometry
                                 Center="25,25"
@@ -123,13 +97,10 @@
                         </Label.FormattedText>
                     </Label>
                     <Label
+                        Style="{StaticResource HeaderSubTitle}"
                         Grid.Row="1"
                         Grid.Column="1"
-                        FontAttributes="Bold"
-                        FontSize="Small"
-                        Text="{Binding Email}"
-                        TextColor="Gray"
-                        VerticalTextAlignment="Start" />
+                        Text="{Binding Email}" />
                 </Grid>
             </Expander.Header>
             <Expander.ContentTemplate>
@@ -139,23 +110,15 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Image
-                            Aspect="AspectFill"
-                            HeightRequest="120"
-                            Source="{Binding Avatar}"
-                            WidthRequest="120">
-                            <Image.Clip>
-                                <EllipseGeometry
-                                    Center="60,60"
-                                    RadiusX="80"
-                                    RadiusY="80" />
-                            </Image.Clip>
-                        </Image>
+                        <Frame Style="{StaticResource ImageFrame}">
+                            <Image
+                                Style="{StaticResource ContentImage}"
+                                Source="{Binding Avatar}">
+                            </Image>
+                        </Frame>
                         <Label
+                            Style="{StaticResource ContentDetails}"
                             Grid.Column="1"
-                            FontAttributes="Italic"
-                            LineBreakMode="TailTruncation"
-                            MaxLines="5"
                             Text="{Binding Details}" />
                     </Grid>
                 </DataTemplate>
