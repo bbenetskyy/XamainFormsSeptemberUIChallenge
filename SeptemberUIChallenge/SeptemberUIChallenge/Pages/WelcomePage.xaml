@@ -39,8 +39,7 @@
                     <controls:MagicButton
                         x:Name="LoginButton"
                         Command="{Binding LoginCommand}"
-                        Text="Login"
-                        WidthRequest="150">
+                        Text="Login">
                         <controls:MagicButton.CssGradientSource>
                             <magic:CssGradientSource>
                                 <x:String>
@@ -51,7 +50,7 @@
                             </magic:CssGradientSource>
                         </controls:MagicButton.CssGradientSource>
                     </controls:MagicButton>
-
+                    <!--  todo eject this to styles  -->
                     <Button
                         x:Name="RegisterButton"
                         Background="Transparent"
@@ -61,8 +60,7 @@
                         CornerRadius="15"
                         Text="Register"
                         TextColor="White"
-                        Visual="Default"
-                        WidthRequest="150" />
+                        Visual="Default" />
                     <Label
                         x:Name="BackLabel"
                         Margin="0,50,0,0"
@@ -89,4 +87,4 @@
                 VerticalOptions="FillAndExpand" />
         </Grid>
     </ContentPage.Content>
-</ContentPage>
+</ContentPage> 

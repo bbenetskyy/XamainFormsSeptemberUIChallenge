@@ -77,7 +77,7 @@ namespace SeptemberUIChallenge.PageModels
                 if (await Register())
                 {
                     IsHighlyAppreciated = true;
-                    AlertService.ShowSuccess("Welcome, you are registered user now!!!", "", "Go and find someone", () =>
+                    AlertService.ShowSuccess("Welcome, you are registered user now!!!", "Success", "Go and find someone", () =>
                       {
                           Application.Current.MainPage = new AppShell();
                       });
@@ -139,7 +139,7 @@ namespace SeptemberUIChallenge.PageModels
             {
                 if (await Login())
                 {
-                    AlertService.ShowSuccess("Welcome back, glad to see you again!", "", "Go and find someone", () =>
+                    AlertService.ShowSuccess("Welcome back, glad to see you again!", "Success", "Go and find someone", () =>
                       {
                           Application.Current.MainPage = new AppShell();
                       });

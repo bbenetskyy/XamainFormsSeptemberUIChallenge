@@ -84,7 +84,7 @@ namespace SeptemberUIChallenge.Pages
         {
             SwipeCardView.InvokeSwipe(SwipeCardDirection.Left);
         }
-
+//todo remove system
         private void OnLikeClicked(System.Object sender, System.EventArgs e)
         {
             SwipeCardView.InvokeSwipe(SwipeCardDirection.Right);

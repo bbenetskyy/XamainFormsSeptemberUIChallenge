@@ -8,6 +8,7 @@ namespace SeptemberUIChallenge.Controls
         public LoadingControl()
         {
             InitializeComponent();
+            SetBinding(IsVisibleProperty, new Binding(nameof(IsBusy), source: this) );
         }
 
         public static readonly BindableProperty IsBusyProperty = BindableProperty.Create(

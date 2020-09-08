@@ -13,8 +13,7 @@ namespace SeptemberUIChallenge.Data.Logger
 
         public void LogError(Exception ex)
         {
-            LogError(ex.Message);
-            LogError(ex.StackTrace);
+            LogError($"{ex.Message}{Environment.NewLine}{ex.StackTrace}");
         }
 
         public void LogEvent(string message)

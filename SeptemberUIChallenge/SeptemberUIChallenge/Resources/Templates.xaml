@@ -3,9 +3,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+    xmlns:controls="clr-namespace:SeptemberUIChallenge.Controls;assembly=SeptemberUIChallenge"
     xmlns:models="clr-namespace:SeptemberUIChallenge.Data.Models;assembly=SeptemberUIChallenge.Data"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
-    <ControlTemplate x:Key="TabsBackgoundTemplate">
+    <ControlTemplate x:Key="TabsBackgroundTemplate">
         <Grid>
             <magic:GradientView>
                 <magic:CssGradientSource>
@@ -17,10 +18,11 @@
                 </magic:CssGradientSource>
             </magic:GradientView>
             <ContentPresenter />
+            <controls:LoadingControl IsBusy="{TemplateBinding BindingContext.IsBusy}" />
         </Grid>
     </ControlTemplate>
     <DataTemplate x:Key="UserCardTemplate" x:DataType="models:UserDetails">
-        <yummy:PancakeView CornerRadius="30">
+        <Frame CornerRadius="30" HasShadow="False" Padding="0" IsClippedToBounds="True">
             <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*">
                 <Image
                     Grid.Row="0"
@@ -87,7 +89,7 @@
                         VerticalTextAlignment="Center" />
                 </Frame>
             </Grid>
-        </yummy:PancakeView>
+        </Frame>
     </DataTemplate>
     <DataTemplate x:Key="UserExpanderTemplate" x:DataType="models:UserDetails">
         <Expander

@@ -13,6 +13,7 @@ namespace SeptemberUIChallenge
 
         private void RegisterRoutes()
         {
+            //todo remove it
             Routing.RegisterRoute("welcome", typeof(WelcomePage));
             Routing.RegisterRoute("cards", typeof(CardsPage));
             Routing.RegisterRoute("favourites", typeof(FavouritesPage));
