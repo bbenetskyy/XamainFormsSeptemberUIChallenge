@@ -19,7 +19,7 @@
             <ContentPresenter />
         </Grid>
     </ControlTemplate>
-    <DataTemplate x:DataType="models:UserDetails" x:Key="UserCard">
+      <DataTemplate x:DataType="models:UserDetails" x:Key="UserCardTemplate">
                             <yummy:PancakeView CornerRadius="30">
                                 <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*">
                                     <Image
@@ -89,7 +89,7 @@
                                 </Grid>
                             </yummy:PancakeView>
                         </DataTemplate>
-    <DataTemplate x:DataType="models:UserDetails" x:Key="UserExpander">
+    <DataTemplate x:DataType="models:UserDetails" x:Key="UserExpanderTemplate">
                             <Expander
                                 Margin="5"
                                 CollapseAnimationEasing="{x:Static Easing.CubicOut}"

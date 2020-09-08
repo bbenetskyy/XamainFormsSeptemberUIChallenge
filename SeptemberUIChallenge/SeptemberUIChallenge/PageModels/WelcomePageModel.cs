@@ -85,8 +85,11 @@ namespace SeptemberUIChallenge.PageModels
                 return;
             }
 
+            if (ConnectionManager.TerminateIfNoInternetAccess()) return;
+
             try
             {
+                IsBusy = true;
                 var token = await (_loginMode switch
                 {
                     Register => _loginService.Register(LoginModel.Email, LoginModel.Password),
@@ -103,9 +106,13 @@ namespace SeptemberUIChallenge.PageModels
                 Logger.LogError(apiException);
             }
             catch (Exception e)
-            { 
+            {
                 AlertService.ShowError(e.Message);
                 Logger.LogError(e);
+            }
+            finally
+            {
+                IsBusy = false;
             }
         }
 

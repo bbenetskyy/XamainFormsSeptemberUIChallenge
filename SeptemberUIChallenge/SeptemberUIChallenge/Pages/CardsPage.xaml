@@ -21,6 +21,12 @@
         </behaviors:EventHandlerBehavior>
     </ContentPage.Behaviors>
     
+    <ContentPage.Resources>
+        <ResourceDictionary>
+          
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <Grid>
             <StackLayout>
@@ -34,7 +40,7 @@
                     SupportedDraggingDirections="Left,Right"
                     SupportedSwipeDirections="Left,Right"
                     VerticalOptions="FillAndExpand"
-                    ItemTemplate="{StaticResource UserCard}"/>
+                    ItemTemplate="{StaticResource UserCardTemplate}"/>
                 <StackLayout
                     Padding="10,10,10,20"
                     HorizontalOptions="Center"

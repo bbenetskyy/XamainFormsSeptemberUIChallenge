@@ -71,7 +71,8 @@
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-            </Grid>
+            </Grid>  
+            <controls:LoadingControl IsBusy="{Binding IsBusy}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

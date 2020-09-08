@@ -28,7 +28,7 @@ namespace SeptemberUIChallenge.Services
             Show(message,title,okButtonText,okButtonAction,Success);
         }
         
-        public void ShowConfirmation(string message, string title = "Error", string okButtonText = "Ok", Action okButtonAction = null, string cancelButtonText = "Cancel", Action cancelButtonAction = null)
+        public void ShowConfirmation(string message, string title = "Error", string okButtonText = "Ok", Action okButtonAction = null, string cancelButtonText = "Cancel", Action cancelButtonAction = null, InteractiveAlertStyle alertStyle = Warning)
         {
             var alertConfig = new InteractiveAlertConfig
             {
@@ -44,8 +44,8 @@ namespace SeptemberUIChallenge.Services
                 },
                 Title = title,
                 Message = message,
-                Style = Wait,
-                IsCancellable = true
+                Style = alertStyle,
+                IsCancellable = false
             };
             _interactiveAlerts.ShowAlert(alertConfig);
         }
@@ -62,7 +62,7 @@ namespace SeptemberUIChallenge.Services
                 Title = title,
                 Message = message,
                 Style = style,
-                IsCancellable = true
+                IsCancellable = false
             };
             _interactiveAlerts.ShowAlert(alertConfig);
         }

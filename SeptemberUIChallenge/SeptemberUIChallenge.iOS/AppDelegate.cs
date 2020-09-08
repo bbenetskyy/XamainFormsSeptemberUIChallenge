@@ -1,6 +1,9 @@
 ﻿using Foundation;
 using Lottie.Forms.iOS.Renderers;
+using SeptemberUIChallenge.iOS.Services;
+using SeptemberUIChallenge.Services;
 using UIKit;
+using Xamarin.Forms;
 
 namespace SeptemberUIChallenge.iOS
 {
@@ -23,9 +26,15 @@ namespace SeptemberUIChallenge.iOS
             Xamarin.Forms.Forms.Init();
             Xamarin.Forms.FormsMaterial.Init();
             AnimationViewRenderer.Init();
+            RegisterDependencies();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        private void RegisterDependencies()
+        {
+            DependencyService.Register<ICloseApplicationManager, CloseApplicationManager>();
         }
     }
 }
