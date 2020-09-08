@@ -2,7 +2,7 @@ namespace SeptemberUIChallenge.Data.Models
 {
     public enum LoginMode
     {
-        Undefined,
+        Initial,
         Login,
         Register
     }

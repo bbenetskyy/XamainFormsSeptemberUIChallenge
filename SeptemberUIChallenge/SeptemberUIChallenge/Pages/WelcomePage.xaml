@@ -22,21 +22,26 @@
                     </x:String>
                 </magic:CssGradientSource>
             </magic:GradientView>
-            <Grid RowDefinitions="*, 2*">
+            <Grid Margin="10,0" RowDefinitions="*, 4*">
                 <StackLayout Grid.Row="1">
                     <Entry
+                        x:Name="EmailEntry"
+                        Keyboard="Email"
                         Placeholder="Email"
                         Style="{StaticResource LoginEntry}"
                         Text="{Binding LoginModel.Email}" />
                     <Entry
+                        x:Name="PasswordEntry"
+                        IsPassword="True"
                         Placeholder="Password"
                         Style="{StaticResource LoginEntry}"
                         Text="{Binding LoginModel.Password}" />
                     <StackLayout
                         HorizontalOptions="Center"
                         Orientation="Horizontal"
-                        Spacing="50">
+                        Spacing="10">
                         <controls:MagicButton
+                            x:Name="LoginButton"
                             Command="{Binding LoginCommand}"
                             Text="Login"
                             WidthRequest="150">
@@ -52,6 +57,7 @@
                         </controls:MagicButton>
 
                         <Button
+                            x:Name="RegisterButton"
                             Background="Transparent"
                             BorderColor="White"
                             BorderWidth="1"
@@ -59,9 +65,11 @@
                             CornerRadius="15"
                             Text="Register"
                             TextColor="White"
+                            Visual="Default"
                             WidthRequest="150" />
                     </StackLayout>
                     <Label
+                        x:Name="BackLabel"
                         Margin="0,50,0,0"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LoginLabel}"

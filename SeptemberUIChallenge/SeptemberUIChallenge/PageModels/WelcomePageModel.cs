@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Refit;
@@ -25,9 +26,7 @@ namespace SeptemberUIChallenge.PageModels
         private readonly ILoginService _loginService;
         private readonly LoginValidator _validator;
         private readonly ISecureStorage _storage;
-
-        private LoginMode _loginMode;
-
+        
         #endregion Fields
 
         #region Constructor
@@ -39,11 +38,11 @@ namespace SeptemberUIChallenge.PageModels
             _storage = storage;
             _loginService = loginService;
             _validator = new LoginValidator();
-            _loginMode = Undefined;
+            LoginMode = Initial;
             LoginModel = new LoginModel();
             LoginCommand = new AsyncCommand(ExecuteLoginCommand);
             RegisterCommand = new AsyncCommand(ExecuteRegisterCommand);
-            SwitchTypeCommand = new AsyncCommand(ExecuteSwitchTypeCommand);
+            SwitchTypeCommand = new Command(ExecuteSwitchTypeCommand);
         }
 
         #endregion Constructor
@@ -52,6 +51,7 @@ namespace SeptemberUIChallenge.PageModels
 
         public LoginModel LoginModel { get; set; }
         public bool  IsHighlyAppreciated { get; set; }
+        public LoginMode LoginMode { get; set; } 
 
         #endregion Properties
         
@@ -59,7 +59,7 @@ namespace SeptemberUIChallenge.PageModels
 
         public IAsyncCommand LoginCommand { get; }
         public IAsyncCommand RegisterCommand { get; }
-        public IAsyncCommand SwitchTypeCommand { get; }
+        public ICommand SwitchTypeCommand { get; }
         
         #endregion Commands
         
@@ -67,24 +67,32 @@ namespace SeptemberUIChallenge.PageModels
         
         private async Task ExecuteRegisterCommand()
         {
-            if (_loginMode == Undefined)
+            if (LoginMode == Initial)
             {
-                _loginMode = Register;
-                MakeTransformation();
+                LoginMode = LoginMode.Register;
                 return;
             }
-
-            if (await MakeRegistration())
+            else if (LoginMode == LoginMode.Register)
             {
-                IsHighlyAppreciated = true;
-                AlertService.ShowSuccess("Welcome, you are registered user now!!!","","Go and find someone", () =>
+                if (await Register())
                 {
-                    Application.Current.MainPage = new AppShell();
-                });
+                    IsHighlyAppreciated = true;
+                    AlertService.ShowSuccess("Welcome, you are registered user now!!!", "", "Go and find someone", () =>
+                      {
+                          Application.Current.MainPage = new AppShell();
+                      });
+                }
             }
         }
 
-        private async Task<bool> MakeRegistration()
+        private Task<bool> Register() 
+            => ValidateAndCallApi(() => _loginService.Register(LoginModel.Email, LoginModel.Password));
+
+        private Task<bool> Login()        
+            => ValidateAndCallApi(() => _loginService.Login(LoginModel.Email, LoginModel.Password));
+
+
+        private async Task<bool> ValidateAndCallApi(Func<Task<string>> apiAction)
         {
             var result = await _validator.ValidateAsync(LoginModel);
             if (!result.IsValid)
@@ -98,13 +106,8 @@ namespace SeptemberUIChallenge.PageModels
             try
             {
                 IsBusy = true;
-                var token = await (_loginMode switch
-                {
-                    Register => _loginService.Register(LoginModel.Email, LoginModel.Password),
-                    Login => _loginService.Login(LoginModel.Email, LoginModel.Password),
-                    _ => throw new ArgumentOutOfRangeException(nameof(_loginMode))
-                });
-                //in real app we might store this token and use in future requests, but our API never need it
+                var token = await apiAction();
+                //in real app we might store this token and use in future requests, but our API we never need it
                 //await _storage.SetAsync(nameof(token),token);
                 return true;
             }
@@ -124,34 +127,29 @@ namespace SeptemberUIChallenge.PageModels
             }
             return false;
         }
-
-        private void MakeTransformation()
-        {
-            //todo make transformations
-        }
-
+        
         private async Task ExecuteLoginCommand()
         {
-            if (_loginMode == Undefined)
+            if (LoginMode == Initial)
             {
-                _loginMode = Login;
-                MakeTransformation();
+                LoginMode = LoginMode.Login;
                 return;
             }
-            
-            if (await MakeRegistration())
+            else if (LoginMode == LoginMode.Login)
             {
-                AlertService.ShowSuccess("Welcome back, glad to see you again!","","Go and find someone", () =>
+                if (await Login())
                 {
-                    Application.Current.MainPage = new AppShell();
-                });
+                    AlertService.ShowSuccess("Welcome back, glad to see you again!", "", "Go and find someone", () =>
+                      {
+                          Application.Current.MainPage = new AppShell();
+                      });
+                }
             }
         }
         
-        private async Task ExecuteSwitchTypeCommand()
+        private void ExecuteSwitchTypeCommand()
         {
-            _loginMode = Undefined;
-            MakeTransformation();
+            LoginMode = Initial;
         }
         
         #endregion Private Methods
