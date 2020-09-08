@@ -24,7 +24,6 @@ namespace SeptemberUIChallenge.Data.Infrastructure
             }
             catch (RealmDuplicatePrimaryKeyValueException)
             {
-                //todo use resource file
                 throw new ArgumentException($"User Already Exist {user.Email}");
             }
         }

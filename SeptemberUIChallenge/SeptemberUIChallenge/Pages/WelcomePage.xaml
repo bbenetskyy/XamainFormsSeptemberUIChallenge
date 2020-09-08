@@ -8,6 +8,7 @@
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
     xmlns:particle="clr-namespace:Particle.Forms;assembly=Particle.Forms"
+    xmlns:resources="clr-namespace:SeptemberUIChallenge.Resources;assembly=SeptemberUIChallenge"
     ios:Page.UseSafeArea="true"
     BindingContext="{Binding WelcomePageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}"
     Visual="Material">
@@ -27,19 +28,19 @@
                     <Entry
                         x:Name="EmailEntry"
                         Keyboard="Email"
-                        Placeholder="Email"
+                        Placeholder="{x:Static resources:AppResources.Email}"
                         Style="{StaticResource LoginEntry}"
                         Text="{Binding LoginModel.Email}" />
                     <Entry
                         x:Name="PasswordEntry"
                         IsPassword="True"
-                        Placeholder="Password"
+                        Placeholder="{x:Static resources:AppResources.Password}"
                         Style="{StaticResource LoginEntry}"
                         Text="{Binding LoginModel.Password}" />
                     <controls:MagicButton
                         x:Name="LoginButton"
                         Command="{Binding LoginCommand}"
-                        Text="Login">
+                        Text="{x:Static resources:AppResources.Login}">
                         <controls:MagicButton.CssGradientSource>
                             <magic:CssGradientSource>
                                 <x:String>
@@ -58,7 +59,7 @@
                         BorderWidth="1"
                         Command="{Binding RegisterCommand}"
                         CornerRadius="15"
-                        Text="Register"
+                        Text="{x:Static resources:AppResources.Register}"
                         TextColor="White"
                         Visual="Default" />
                     <Label
@@ -66,7 +67,7 @@
                         Margin="0,50,0,0"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LoginLabel}"
-                        Text="Back"
+                        Text="{x:Static resources:AppResources.Back}"
                         TextDecorations="Underline">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SwitchTypeCommand}" />

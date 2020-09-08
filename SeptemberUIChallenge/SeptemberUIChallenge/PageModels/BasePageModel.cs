@@ -31,6 +31,5 @@ namespace SeptemberUIChallenge.PageModels
         protected IConnectionManager ConnectionManager { get; }
 
         #endregion Properties
-
     }
 }

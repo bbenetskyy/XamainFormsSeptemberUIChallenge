@@ -1,5 +1,6 @@
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using static SeptemberUIChallenge.Resources.AppResources;
 
 namespace SeptemberUIChallenge.Services
 {
@@ -26,19 +27,19 @@ namespace SeptemberUIChallenge.Services
 
             if (forceTerminate)
             {
-                _alertService.ShowWarning("This application cannot be used offline.", "No Internet!!!",
-                    "Ok", () =>
+                _alertService.ShowWarning(CannotBeUsedOffline, NoInternet,
+                    CloseApp, () =>
                     {
                         _applicationManager.CloseApplication();
                     });
             }
             else
             {
-                _alertService.ShowConfirmation("This application cannot be used offline.", "No Internet!!!",
-                    "Ok", () =>
+                _alertService.ShowConfirmation(CannotBeUsedOffline, NoInternet,
+                    Ok, () =>
                     {
                         okButtonPressed = true;
-                    }, "Close App", () =>
+                    }, CloseApp, () =>
                     {
                         if (Device.RuntimePlatform == Device.iOS && okButtonPressed)
                             return;//this is bug https://github.com/kvandake/InteractiveAlert-Xamarin/issues/9

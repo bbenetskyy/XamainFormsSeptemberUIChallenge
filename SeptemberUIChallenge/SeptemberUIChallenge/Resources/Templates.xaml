@@ -5,7 +5,8 @@
     xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
     xmlns:controls="clr-namespace:SeptemberUIChallenge.Controls;assembly=SeptemberUIChallenge"
     xmlns:models="clr-namespace:SeptemberUIChallenge.Data.Models;assembly=SeptemberUIChallenge.Data"
-    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:resources="clr-namespace:SeptemberUIChallenge.Resources;assembly=SeptemberUIChallenge">
     <ControlTemplate x:Key="TabsBackgroundTemplate">
         <Grid>
             <magic:GradientView>
@@ -62,7 +63,7 @@
                         BackgroundColor="Transparent"
                         FontSize="32"
                         HorizontalTextAlignment="Center"
-                        Text="LIKE"
+                        Text="{x:Static resources:AppResources.Like}"
                         TextColor="Red"
                         VerticalOptions="CenterAndExpand"
                         VerticalTextAlignment="Center" />
@@ -83,7 +84,7 @@
                         BackgroundColor="Transparent"
                         FontSize="32"
                         HorizontalTextAlignment="Center"
-                        Text="NOPE"
+                        Text="{x:Static resources:AppResources.Nope}"
                         TextColor="White"
                         VerticalOptions="CenterAndExpand"
                         VerticalTextAlignment="Center" />

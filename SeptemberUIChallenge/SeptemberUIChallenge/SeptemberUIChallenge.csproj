@@ -31,6 +31,10 @@
 
     <ItemGroup>
       <EmbeddedResource Include="Resources\Fonts\icomoon.ttf" />
+      <EmbeddedResource Update="Resources\AppResources.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Update="AppShell.xaml">
@@ -70,6 +74,11 @@
       </Compile>
       <Compile Update="Pages\FavouritesPage.xaml.cs">
         <DependentUpon>FavouritesPage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\AppResources.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AppResources.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

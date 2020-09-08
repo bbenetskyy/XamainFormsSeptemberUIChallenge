@@ -1,4 +1,3 @@
-using SeptemberUIChallenge.Data.Logger;
 using SeptemberUIChallenge.Services;
 using Xamarin.Forms;
 

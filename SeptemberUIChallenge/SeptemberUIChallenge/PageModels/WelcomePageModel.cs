@@ -16,6 +16,7 @@ using SeptemberUIChallenge.Validators;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using static SeptemberUIChallenge.Data.Models.LoginMode;
+using static SeptemberUIChallenge.Resources.AppResources;
 
 namespace SeptemberUIChallenge.PageModels
 {
@@ -77,7 +78,7 @@ namespace SeptemberUIChallenge.PageModels
                 if (await Register())
                 {
                     IsHighlyAppreciated = true;
-                    AlertService.ShowSuccess("Welcome, you are registered user now!!!", "Success", "Go and find someone", () =>
+                    AlertService.ShowSuccess(RegisteredGreetings, Success, GoToFind, () =>
                       {
                           Application.Current.MainPage = new AppShell();
                       });
@@ -97,7 +98,7 @@ namespace SeptemberUIChallenge.PageModels
             var result = await _validator.ValidateAsync(LoginModel);
             if (!result.IsValid)
             {
-                AlertService.ShowError(result.Errors.First().ErrorMessage,"Validation Error");
+                AlertService.ShowError(result.Errors.First().ErrorMessage,ValidationError);
                 return false;
             }
 
@@ -107,7 +108,7 @@ namespace SeptemberUIChallenge.PageModels
             {
                 IsBusy = true;
                 var token = await apiAction();
-                //in real app we might store this token and use in future requests, but our API we never need it
+                //in real app we might store this token and use in future requests, but our API we never need it :P
                 //await _storage.SetAsync(nameof(token),token);
                 return true;
             }
@@ -139,7 +140,7 @@ namespace SeptemberUIChallenge.PageModels
             {
                 if (await Login())
                 {
-                    AlertService.ShowSuccess("Welcome back, glad to see you again!", "Success", "Go and find someone", () =>
+                    AlertService.ShowSuccess(LoggedInGreetings, Success, GoToFind, () =>
                       {
                           Application.Current.MainPage = new AppShell();
                       });
