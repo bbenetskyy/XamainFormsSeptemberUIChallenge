@@ -44,6 +44,8 @@ namespace SeptemberUIChallenge.PageModels
         
         private async Task ExecutePageAppearingCommand()
         {
+            if (ConnectionManager.TerminateIfNoInternetAccess(true)) return;
+
             try
             {
                 IsBusy = true;
