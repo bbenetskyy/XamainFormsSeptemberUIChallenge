@@ -45,6 +45,7 @@ namespace SeptemberUIChallenge.Pages
             BackLabel.FadeTo(0, 1);
             EmailEntry.FadeTo(0, 1);
             PasswordEntry.FadeTo(0, 1);
+            
             BackLabel.TranslateTo(0, 30, 1);
             EmailEntry.TranslateTo(0, -60, 1);
             PasswordEntry.TranslateTo(0, -60, 1);
@@ -64,42 +65,48 @@ namespace SeptemberUIChallenge.Pages
             {
                 case LoginMode.Initial:
                     RegisterButton.TranslateTo(0, 0, AnimationSpeed);
-                    LoginButton.FadeTo(1, AnimationSpeed);
                     RegisterButton.FadeTo(1, AnimationSpeed);
-                    BackLabel.FadeTo(0, AnimationSpeed);
-                    EmailEntry.FadeTo(0, AnimationSpeed);
-                    PasswordEntry.FadeTo(0, AnimationSpeed);
-                    BackLabel.TranslateTo(0, 30, AnimationSpeed);
-                    EmailEntry.TranslateTo(0, -60, AnimationSpeed);
-                    PasswordEntry.TranslateTo(0, -60, AnimationSpeed);
+                    LoginButton.FadeTo(1, AnimationSpeed); 
+                    HideControls();
                     _viewModel.LoginModel.Email = string.Empty;
                     _viewModel.LoginModel.Password = string.Empty;
                     break;
                 case LoginMode.Login:
-                    BackLabel.TranslateTo(0, 0, AnimationSpeed);
-                    EmailEntry.TranslateTo(0, 0, AnimationSpeed);
-                    PasswordEntry.TranslateTo(0, 0, AnimationSpeed);
                     RegisterButton.FadeTo(0, AnimationSpeed);
-                    BackLabel.FadeTo(1, AnimationSpeed);
-                    EmailEntry.FadeTo(1, AnimationSpeed);
-                    PasswordEntry.FadeTo(1, AnimationSpeed);
+                    ShowControls();
                     break;
                 case LoginMode.Register:
                     RegisterButton.TranslateTo(0, LoginButton.Y - RegisterButton.Y, AnimationSpeed);
-                    BackLabel.TranslateTo(0, 0, AnimationSpeed);
-                    EmailEntry.TranslateTo(0, 0, AnimationSpeed);
-                    PasswordEntry.TranslateTo(0, 0, AnimationSpeed);
                     LoginButton.FadeTo(0, AnimationSpeed);
-                    BackLabel.FadeTo(1, AnimationSpeed);
-                    EmailEntry.FadeTo(1, AnimationSpeed);
-                    PasswordEntry.FadeTo(1, AnimationSpeed);
+                    ShowControls();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(loginMode));
             }
         }
 
-        #endregion Private Methods
+        private void ShowControls()
+        {
+            BackLabel.TranslateTo(0, 0, AnimationSpeed);
+            EmailEntry.TranslateTo(0, 0, AnimationSpeed);
+            PasswordEntry.TranslateTo(0, 0, AnimationSpeed);
+            
+            BackLabel.FadeTo(1, AnimationSpeed);
+            EmailEntry.FadeTo(1, AnimationSpeed);
+            PasswordEntry.FadeTo(1, AnimationSpeed);
+        }
 
+        private void HideControls()
+        {
+            BackLabel.FadeTo(0, AnimationSpeed);
+            EmailEntry.FadeTo(0, AnimationSpeed);
+            PasswordEntry.FadeTo(0, AnimationSpeed);
+            
+            BackLabel.TranslateTo(0, 30, AnimationSpeed);
+            EmailEntry.TranslateTo(0, -60, AnimationSpeed);
+            PasswordEntry.TranslateTo(0, -60, AnimationSpeed);
+        }
+
+        #endregion Private Methods
     }
 }

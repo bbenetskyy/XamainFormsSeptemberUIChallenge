@@ -11,16 +11,17 @@ namespace SeptemberUIChallenge.Pages
             InitializeComponent();
         }
 
-        void OnDragging(object sender, DraggingCardEventArgs args)
+        private void OnDragging(object sender, DraggingCardEventArgs args)
         {
             var view = (View)sender;
             var nopeFrame = view.FindByName<Frame>("NopeFrame");
             var likeFrame = view.FindByName<Frame>("LikeFrame");
 
-            //todo refactor this shit - use enum for this, like status???
             switch (args.Position)
             {
                 case DraggingCardPosition.Start:
+                case DraggingCardPosition.FinishedUnderThreshold:
+                case DraggingCardPosition.FinishedOverThreshold:
                     nopeFrame.Opacity = 0;
                     likeFrame.Opacity = 0;
                     nopeButton.Scale = 1;
@@ -28,22 +29,6 @@ namespace SeptemberUIChallenge.Pages
                     break;
 
                 case DraggingCardPosition.UnderThreshold:
-                    if (args.Direction == SwipeCardDirection.Left)
-                    {
-                        nopeFrame.Opacity = 1;
-                        nopeButton.Scale = 0.75;
-                        likeFrame.Opacity = 0;
-                        likeButton.Scale = 1;
-                    }
-                    else if (args.Direction == SwipeCardDirection.Right)
-                    {
-                        likeFrame.Opacity = 1;
-                        likeButton.Scale = 0.75;
-                        nopeFrame.Opacity = 0;
-                        nopeButton.Scale = 1;
-                    }
-                    break;
-
                 case DraggingCardPosition.OverThreshold:
                     if (args.Direction == SwipeCardDirection.Left)
                     {
@@ -60,32 +45,17 @@ namespace SeptemberUIChallenge.Pages
                         nopeButton.Scale = 1;
                     }
                     break;
-
-                case DraggingCardPosition.FinishedUnderThreshold:
-                    nopeFrame.Opacity = 0;
-                    likeFrame.Opacity = 0;
-                    nopeButton.Scale = 1;
-                    likeButton.Scale = 1;
-                    break;
-
-                case DraggingCardPosition.FinishedOverThreshold:
-                    nopeFrame.Opacity = 0;
-                    likeFrame.Opacity = 0;
-                    nopeButton.Scale = 1;
-                    likeButton.Scale = 1;
-                    break;
-
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        private void OnNopeClicked(System.Object sender, System.EventArgs e)
+        private void OnNopeClicked(object sender, EventArgs e)
         {
             SwipeCardView.InvokeSwipe(SwipeCardDirection.Left);
         }
-//todo remove system
-        private void OnLikeClicked(System.Object sender, System.EventArgs e)
+
+        private void OnLikeClicked(object sender, EventArgs e)
         {
             SwipeCardView.InvokeSwipe(SwipeCardDirection.Right);
         }

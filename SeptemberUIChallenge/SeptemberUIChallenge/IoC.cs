@@ -28,10 +28,9 @@ namespace SeptemberUIChallenge
             
             DependencyService.RegisterSingleton<ISecureStorage>(new SecureStorage());
             
-            //todo try to add httpclient or static class to return URL
-            DependencyService.RegisterSingleton<ILoginApi>(RestService.For<ILoginApi>("https://reqres.in"));
+            DependencyService.RegisterSingleton<ILoginApi>(RestService.For<ILoginApi>(ApiUrlProvider.LoginApiEndpoint));
            
-            DependencyService.RegisterSingleton<IUserApi>(RestService.For<IUserApi>("https://reqres.in"));
+            DependencyService.RegisterSingleton<IUserApi>(RestService.For<IUserApi>(ApiUrlProvider.UserApiEndpoint));
            
             DependencyService.RegisterSingleton<ILoginService>(new LoginService(
                 DependencyService.Get<ILoginApi>()));
