@@ -36,38 +36,33 @@
                         Placeholder="Password"
                         Style="{StaticResource LoginEntry}"
                         Text="{Binding LoginModel.Password}" />
-                    <StackLayout
-                        HorizontalOptions="Center"
-                        Orientation="Horizontal"
-                        Spacing="10">
-                        <controls:MagicButton
-                            x:Name="LoginButton"
-                            Command="{Binding LoginCommand}"
-                            Text="Login"
-                            WidthRequest="150">
-                            <controls:MagicButton.CssGradientSource>
-                                <magic:CssGradientSource>
-                                    <x:String>
-                                        <![CDATA[
+                    <controls:MagicButton
+                        x:Name="LoginButton"
+                        Command="{Binding LoginCommand}"
+                        Text="Login"
+                        WidthRequest="150">
+                        <controls:MagicButton.CssGradientSource>
+                            <magic:CssGradientSource>
+                                <x:String>
+                                    <![CDATA[
                radial-gradient(circle at center, rgb(80, 32, 84), rgb(62, 35, 81), rgb(44, 38, 79), rgb(26, 40, 76), rgb(8, 43, 73))
             ]]>
-                                    </x:String>
-                                </magic:CssGradientSource>
-                            </controls:MagicButton.CssGradientSource>
-                        </controls:MagicButton>
+                                </x:String>
+                            </magic:CssGradientSource>
+                        </controls:MagicButton.CssGradientSource>
+                    </controls:MagicButton>
 
-                        <Button
-                            x:Name="RegisterButton"
-                            Background="Transparent"
-                            BorderColor="White"
-                            BorderWidth="1"
-                            Command="{Binding RegisterCommand}"
-                            CornerRadius="15"
-                            Text="Register"
-                            TextColor="White"
-                            Visual="Default"
-                            WidthRequest="150" />
-                    </StackLayout>
+                    <Button
+                        x:Name="RegisterButton"
+                        Background="Transparent"
+                        BorderColor="White"
+                        BorderWidth="1"
+                        Command="{Binding RegisterCommand}"
+                        CornerRadius="15"
+                        Text="Register"
+                        TextColor="White"
+                        Visual="Default"
+                        WidthRequest="150" />
                     <Label
                         x:Name="BackLabel"
                         Margin="0,50,0,0"

@@ -13,10 +13,6 @@ namespace SeptemberUIChallenge.Pages
         private const int AnimationSpeed = 500;
 
         private WelcomePageModel _viewModel;
-        private double _initialLoginX;
-        private double _initialLoginY;
-        private double _initialRegisterX;
-        private double _initialRegisterY;
 
         #endregion Fields
 
@@ -28,10 +24,6 @@ namespace SeptemberUIChallenge.Pages
             _viewModel = (WelcomePageModel)BindingContext;
             _viewModel.PropertyChanged += ViewModelPropertyChanged;
             StartLayout();
-            _initialLoginX = LoginButton.X;
-            _initialLoginY = LoginButton.Y;
-            _initialRegisterX = RegisterButton.X;
-            _initialRegisterY = RegisterButton.Y;
         }
 
         #endregion Constructor
@@ -71,6 +63,7 @@ namespace SeptemberUIChallenge.Pages
             switch (loginMode)
             {
                 case LoginMode.Initial:
+                    RegisterButton.TranslateTo(0, 0, AnimationSpeed);
                     LoginButton.FadeTo(1, AnimationSpeed);
                     RegisterButton.FadeTo(1, AnimationSpeed);
                     BackLabel.FadeTo(0, AnimationSpeed);
@@ -81,24 +74,21 @@ namespace SeptemberUIChallenge.Pages
                     PasswordEntry.TranslateTo(0, -60, AnimationSpeed);
                     _viewModel.LoginModel.Email = string.Empty;
                     _viewModel.LoginModel.Password = string.Empty;
-                    RegisterButton.TranslateTo(_initialRegisterX, _initialRegisterY, AnimationSpeed);
-                    LoginButton.TranslateTo(_initialLoginX, _initialLoginY, AnimationSpeed);
                     break;
                 case LoginMode.Login:
                     BackLabel.TranslateTo(0, 0, AnimationSpeed);
                     EmailEntry.TranslateTo(0, 0, AnimationSpeed);
                     PasswordEntry.TranslateTo(0, 0, AnimationSpeed);
-                    LoginButton.TranslateTo(20, LoginButton.Y + 30, AnimationSpeed);
                     RegisterButton.FadeTo(0, AnimationSpeed);
                     BackLabel.FadeTo(1, AnimationSpeed);
                     EmailEntry.FadeTo(1, AnimationSpeed);
                     PasswordEntry.FadeTo(1, AnimationSpeed);
                     break;
                 case LoginMode.Register:
+                    RegisterButton.TranslateTo(0, LoginButton.Y - RegisterButton.Y, AnimationSpeed);
                     BackLabel.TranslateTo(0, 0, AnimationSpeed);
                     EmailEntry.TranslateTo(0, 0, AnimationSpeed);
                     PasswordEntry.TranslateTo(0, 0, AnimationSpeed);
-                    RegisterButton.TranslateTo(-20, LoginButton.Y + 30, AnimationSpeed);
                     LoginButton.FadeTo(0, AnimationSpeed);
                     BackLabel.FadeTo(1, AnimationSpeed);
                     EmailEntry.FadeTo(1, AnimationSpeed);
