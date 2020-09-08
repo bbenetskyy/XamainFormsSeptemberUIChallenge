@@ -25,9 +25,9 @@
             <ScrollView>
                 <StackLayout
                     Margin="5,10"
+                    BindableLayout.ItemTemplate="{StaticResource UserExpanderTemplate}"
                     BindableLayout.ItemsSource="{Binding Users}"
-                    Spacing="10"
-                    BindableLayout.ItemTemplate="{StaticResource UserExpander}"/>
+                    Spacing="10" />
             </ScrollView>
             <controls:LoadingControl IsBusy="{Binding IsBusy}" />
         </Grid>

@@ -51,6 +51,7 @@ namespace SeptemberUIChallenge.PageModels
         #region Properties
 
         public LoginModel LoginModel { get; set; }
+        public bool  IsHighlyAppreciated { get; set; }
 
         #endregion Properties
         
@@ -73,19 +74,26 @@ namespace SeptemberUIChallenge.PageModels
                 return;
             }
 
-            await MakeRegistration();
+            if (await MakeRegistration())
+            {
+                IsHighlyAppreciated = true;
+                AlertService.ShowSuccess("Welcome, you are registered user now!!!","","Go and find someone", () =>
+                {
+                    Application.Current.MainPage = new AppShell();
+                });
+            }
         }
 
-        private async Task MakeRegistration()
+        private async Task<bool> MakeRegistration()
         {
             var result = await _validator.ValidateAsync(LoginModel);
             if (!result.IsValid)
             {
                 AlertService.ShowError(result.Errors.First().ErrorMessage,"Validation Error");
-                return;
+                return false;
             }
 
-            if (ConnectionManager.TerminateIfNoInternetAccess()) return;
+            if (ConnectionManager.TerminateIfNoInternetAccess()) return false;
 
             try
             {
@@ -98,7 +106,7 @@ namespace SeptemberUIChallenge.PageModels
                 });
                 //in real app we might store this token and use in future requests, but our API never need it
                 //await _storage.SetAsync(nameof(token),token);
-                Application.Current.MainPage = new AppShell();
+                return true;
             }
             catch (ApiException apiException)
             {
@@ -114,6 +122,7 @@ namespace SeptemberUIChallenge.PageModels
             {
                 IsBusy = false;
             }
+            return false;
         }
 
         private void MakeTransformation()
@@ -130,7 +139,13 @@ namespace SeptemberUIChallenge.PageModels
                 return;
             }
             
-            await MakeRegistration();
+            if (await MakeRegistration())
+            {
+                AlertService.ShowSuccess("Welcome back, glad to see you again!","","Go and find someone", () =>
+                {
+                    Application.Current.MainPage = new AppShell();
+                });
+            }
         }
         
         private async Task ExecuteSwitchTypeCommand()

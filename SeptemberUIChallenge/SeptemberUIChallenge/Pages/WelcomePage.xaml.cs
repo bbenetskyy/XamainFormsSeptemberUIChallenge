@@ -8,5 +8,11 @@ namespace SeptemberUIChallenge.Pages
         {
             InitializeComponent();
         }
+        
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            HoorayParticleCanvas.IsRunning = false;
+        }
     }
 }

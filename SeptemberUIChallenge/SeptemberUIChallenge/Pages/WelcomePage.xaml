@@ -7,6 +7,7 @@
     xmlns:controls="clr-namespace:SeptemberUIChallenge.Controls"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+    xmlns:particle="clr-namespace:Particle.Forms;assembly=Particle.Forms"
     ios:Page.UseSafeArea="true"
     BindingContext="{Binding WelcomePageModel, Source={StaticResource PageModelLocator}, Mode=OneTime}"
     Visual="Material">
@@ -71,8 +72,18 @@
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-            </Grid>  
+            </Grid>
             <controls:LoadingControl IsBusy="{Binding IsBusy}" />
+            <particle:ParticleView
+                x:Name="HoorayParticleCanvas"
+                Margin="0,20"
+                FallingParticlesPerSecond="20"
+                HasFallingParticles="True"
+                HorizontalOptions="FillAndExpand"
+                IsActive="True"
+                IsRunning="True"
+                IsVisible="{Binding IsHighlyAppreciated}"
+                VerticalOptions="FillAndExpand" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

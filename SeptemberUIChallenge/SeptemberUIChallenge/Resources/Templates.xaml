@@ -10,7 +10,7 @@
             <magic:GradientView>
                 <magic:CssGradientSource>
                     <x:String>
-                        <![CDATA[
+                        <![CDATA[ 
               repeating-linear-gradient(135deg, rgba(138, 138, 138, 0.03) 0px, rgba(138, 138, 138, 0.03) 21px, rgba(142, 142, 142, 0.03) 21px, rgba(142, 142, 142, 0.03) 42px, rgba(41, 41, 41, 0.03) 42px, rgba(41, 41, 41, 0.03) 89px, rgba(204, 204, 204, 0.03) 89px, rgba(204, 204, 204, 0.03) 112px, rgba(193, 193, 193, 0.03) 112px, rgba(193, 193, 193, 0.03) 133px, rgba(112, 112, 112, 0.03) 133px, rgba(112, 112, 112, 0.03) 178px, rgba(116, 116, 116, 0.03) 178px, rgba(116, 116, 116, 0.03) 204px, rgba(158, 158, 158, 0.03) 204px, rgba(158, 158, 158, 0.03) 249px), repeating-linear-gradient(135deg, rgba(101, 101, 101, 0.03) 0px, rgba(101, 101, 101, 0.03) 19px, rgba(235, 235, 235, 0.03) 19px, rgba(235, 235, 235, 0.03) 34px, rgba(160, 160, 160, 0.03) 34px, rgba(160, 160, 160, 0.03) 64px, rgba(40, 40, 40, 0.03) 64px, rgba(40, 40, 40, 0.03) 75px, rgba(162, 162, 162, 0.03) 75px, rgba(162, 162, 162, 0.03) 119px, rgba(43, 43, 43, 0.03) 119px, rgba(43, 43, 43, 0.03) 132px, rgba(52, 52, 52, 0.03) 132px, rgba(52, 52, 52, 0.03) 173px, rgba(119, 119, 119, 0.03) 173px, rgba(119, 119, 119, 0.03) 200px), repeating-linear-gradient(135deg, rgba(216, 216, 216, 0.03) 0px, rgba(216, 216, 216, 0.03) 30px, rgba(221, 221, 221, 0.03) 30px, rgba(221, 221, 221, 0.03) 42px, rgba(198, 198, 198, 0.03) 42px, rgba(198, 198, 198, 0.03) 72px, rgba(147, 147, 147, 0.03) 72px, rgba(147, 147, 147, 0.03) 115px, rgba(208, 208, 208, 0.03) 115px, rgba(208, 208, 208, 0.03) 146px, rgba(190, 190, 190, 0.03) 146px, rgba(190, 190, 190, 0.03) 164px, rgba(151, 151, 151, 0.03) 164px, rgba(151, 151, 151, 0.03) 204px, rgba(179, 179, 179, 0.03) 204px, rgba(179, 179, 179, 0.03) 229px), linear-gradient(90deg, rgb(195, 195, 195), rgb(245, 245, 245))
           ]]>
                     </x:String>
@@ -19,144 +19,144 @@
             <ContentPresenter />
         </Grid>
     </ControlTemplate>
-      <DataTemplate x:DataType="models:UserDetails" x:Key="UserCardTemplate">
-                            <yummy:PancakeView CornerRadius="30">
-                                <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*">
-                                    <Image
-                                        Grid.Row="0"
-                                        Grid.RowSpan="2"
-                                        Grid.Column="0"
-                                        Grid.ColumnSpan="2"
-                                        Aspect="AspectFill"
-                                        Source="{Binding Avatar}" />
-                                    <Label
-                                        Margin="0,20"
-                                        FontAttributes="Bold"
-                                        FontSize="36"
-                                        HorizontalOptions="End"
-                                        Text="{Binding FirstName}"
-                                        TextColor="White" />
-                                    <Label
-                                        Grid.Column="1"
-                                        Margin="0,20"
-                                        FontAttributes="Bold"
-                                        FontSize="36"
-                                        HorizontalOptions="Start"
-                                        Text="{Binding LastName}"
-                                        TextColor="White" />
-                                    <Frame
-                                        x:Name="LikeFrame"
-                                        Grid.Row="1"
-                                        Padding="20,10"
-                                        BackgroundColor="Transparent"
-                                        BorderColor="White"
-                                        CornerRadius="20"
-                                        HorizontalOptions="Center"
-                                        Opacity="0"
-                                        Rotation="-20"
-                                        VerticalOptions="Start">
-                                        <Label
-                                            x:Name="LikeText"
-                                            BackgroundColor="Transparent"
-                                            FontSize="32"
-                                            HorizontalTextAlignment="Center"
-                                            Text="LIKE"
-                                            TextColor="Red"
-                                            VerticalOptions="CenterAndExpand"
-                                            VerticalTextAlignment="Center" />
-                                    </Frame>
-                                    <Frame
-                                        x:Name="NopeFrame"
-                                        Grid.Row="1"
-                                        Grid.Column="1"
-                                        Padding="20,10"
-                                        BackgroundColor="Transparent"
-                                        BorderColor="Red"
-                                        CornerRadius="20"
-                                        HorizontalOptions="Center"
-                                        Opacity="0"
-                                        Rotation="20"
-                                        VerticalOptions="Start">
-                                        <Label
-                                            BackgroundColor="Transparent"
-                                            FontSize="32"
-                                            HorizontalTextAlignment="Center"
-                                            Text="NOPE"
-                                            TextColor="White"
-                                            VerticalOptions="CenterAndExpand"
-                                            VerticalTextAlignment="Center" />
-                                    </Frame>
-                                </Grid>
-                            </yummy:PancakeView>
-                        </DataTemplate>
-    <DataTemplate x:DataType="models:UserDetails" x:Key="UserExpanderTemplate">
-                            <Expander
-                                Margin="5"
-                                CollapseAnimationEasing="{x:Static Easing.CubicOut}"
-                                CollapseAnimationLength="500"
-                                ExpandAnimationEasing="{x:Static Easing.CubicIn}"
-                                ExpandAnimationLength="500">
-                                <Expander.Header>
-                                    <Grid ColumnDefinitions="auto,*" RowDefinitions="auto,*">
-                                        <Image
-                                            Grid.RowSpan="2"
-                                            HeightRequest="50"
-                                            Source="{Binding Avatar}"
-                                            WidthRequest="50">
-                                            <Image.Clip>
-                                                <EllipseGeometry
-                                                    Center="25,25"
-                                                    RadiusX="20"
-                                                    RadiusY="20" />
-                                            </Image.Clip>
-                                        </Image>
-                                        <Label Grid.Column="1">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span FontAttributes="Bold" Text="{Binding FirstName}" />
-                                                    <Span Text=" " />
-                                                    <Span FontAttributes="Bold" Text="{Binding LastName}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label
-                                            Grid.Row="1"
-                                            Grid.Column="1"
-                                            FontAttributes="Bold"
-                                            FontSize="Small"
-                                            Text="{Binding Email}"
-                                            TextColor="Gray"
-                                            VerticalTextAlignment="Start" />
-                                    </Grid>
-                                </Expander.Header>
-                                <Expander.ContentTemplate>
-                                    <DataTemplate>
-                                        <Grid Padding="10">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto" />
-                                                <ColumnDefinition Width="Auto" />
-                                            </Grid.ColumnDefinitions>
-                                            <Image
-                                                Aspect="AspectFill"
-                                                HeightRequest="120"
-                                                Source="{Binding Avatar}"
-                                                WidthRequest="120">
-                                                <Image.Clip>
-                                                    <EllipseGeometry
-                                                        Center="60,60"
-                                                        RadiusX="80"
-                                                        RadiusY="80" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <Label
-                                                Grid.Column="1"
-                                                FontAttributes="Italic"
-                                                LineBreakMode="TailTruncation"
-                                                MaxLines="5"
-                                                Text="{Binding Details}" />
-                                        </Grid>
-                                    </DataTemplate>
-                                </Expander.ContentTemplate>
-                            </Expander>
-                        </DataTemplate>
+    <DataTemplate x:Key="UserCardTemplate" x:DataType="models:UserDetails">
+        <yummy:PancakeView CornerRadius="30">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="auto,*">
+                <Image
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Aspect="AspectFill"
+                    Source="{Binding Avatar}" />
+                <Label
+                    Margin="0,20"
+                    FontAttributes="Bold"
+                    FontSize="36"
+                    HorizontalOptions="End"
+                    Text="{Binding FirstName}"
+                    TextColor="White" />
+                <Label
+                    Grid.Column="1"
+                    Margin="0,20"
+                    FontAttributes="Bold"
+                    FontSize="36"
+                    HorizontalOptions="Start"
+                    Text="{Binding LastName}"
+                    TextColor="White" />
+                <Frame
+                    x:Name="LikeFrame"
+                    Grid.Row="1"
+                    Padding="20,10"
+                    BackgroundColor="Transparent"
+                    BorderColor="White"
+                    CornerRadius="20"
+                    HorizontalOptions="Center"
+                    Opacity="0"
+                    Rotation="-20"
+                    VerticalOptions="Start">
+                    <Label
+                        x:Name="LikeText"
+                        BackgroundColor="Transparent"
+                        FontSize="32"
+                        HorizontalTextAlignment="Center"
+                        Text="LIKE"
+                        TextColor="Red"
+                        VerticalOptions="CenterAndExpand"
+                        VerticalTextAlignment="Center" />
+                </Frame>
+                <Frame
+                    x:Name="NopeFrame"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Padding="20,10"
+                    BackgroundColor="Transparent"
+                    BorderColor="Red"
+                    CornerRadius="20"
+                    HorizontalOptions="Center"
+                    Opacity="0"
+                    Rotation="20"
+                    VerticalOptions="Start">
+                    <Label
+                        BackgroundColor="Transparent"
+                        FontSize="32"
+                        HorizontalTextAlignment="Center"
+                        Text="NOPE"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand"
+                        VerticalTextAlignment="Center" />
+                </Frame>
+            </Grid>
+        </yummy:PancakeView>
+    </DataTemplate>
+    <DataTemplate x:Key="UserExpanderTemplate" x:DataType="models:UserDetails">
+        <Expander
+            Margin="5"
+            CollapseAnimationEasing="{x:Static Easing.CubicOut}"
+            CollapseAnimationLength="500"
+            ExpandAnimationEasing="{x:Static Easing.CubicIn}"
+            ExpandAnimationLength="500">
+            <Expander.Header>
+                <Grid ColumnDefinitions="auto,*" RowDefinitions="auto,*">
+                    <Image
+                        Grid.RowSpan="2"
+                        HeightRequest="50"
+                        Source="{Binding Avatar}"
+                        WidthRequest="50">
+                        <Image.Clip>
+                            <EllipseGeometry
+                                Center="25,25"
+                                RadiusX="20"
+                                RadiusY="20" />
+                        </Image.Clip>
+                    </Image>
+                    <Label Grid.Column="1">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span FontAttributes="Bold" Text="{Binding FirstName}" />
+                                <Span Text=" " />
+                                <Span FontAttributes="Bold" Text="{Binding LastName}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        FontSize="Small"
+                        Text="{Binding Email}"
+                        TextColor="Gray"
+                        VerticalTextAlignment="Start" />
+                </Grid>
+            </Expander.Header>
+            <Expander.ContentTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Aspect="AspectFill"
+                            HeightRequest="120"
+                            Source="{Binding Avatar}"
+                            WidthRequest="120">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                    Center="60,60"
+                                    RadiusX="80"
+                                    RadiusY="80" />
+                            </Image.Clip>
+                        </Image>
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Italic"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="5"
+                            Text="{Binding Details}" />
+                    </Grid>
+                </DataTemplate>
+            </Expander.ContentTemplate>
+        </Expander>
+    </DataTemplate>
 </ResourceDictionary>

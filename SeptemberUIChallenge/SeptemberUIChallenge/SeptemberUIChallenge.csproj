@@ -17,6 +17,7 @@
         <PackageReference Include="InteractiveAlerts" Version="0.1.8" />
         <PackageReference Include="MagicGradients" Version="1.1.1" />
         <PackageReference Include="MLToolkit.Forms.SwipeCardView" Version="2.2.0" />
+        <PackageReference Include="particle.forms" Version="1.0.0" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
         <PackageReference Include="Realm" Version="4.3.0" />
         <PackageReference Include="Realm.Fody" Version="4.3.0" />

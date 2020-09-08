@@ -20,13 +20,11 @@
             <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
         </behaviors:EventHandlerBehavior>
     </ContentPage.Behaviors>
-    
+
     <ContentPage.Resources>
-        <ResourceDictionary>
-          
-        </ResourceDictionary>
+        <ResourceDictionary />
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
         <Grid>
             <StackLayout>
@@ -35,12 +33,12 @@
                     Margin="20"
                     Dragging="OnDragging"
                     DraggingCommand="{Binding CardDraggingCommand}"
+                    ItemTemplate="{StaticResource UserCardTemplate}"
                     ItemsSource="{Binding Users}"
                     LoopCards="True"
                     SupportedDraggingDirections="Left,Right"
                     SupportedSwipeDirections="Left,Right"
-                    VerticalOptions="FillAndExpand"
-                    ItemTemplate="{StaticResource UserCardTemplate}"/>
+                    VerticalOptions="FillAndExpand" />
                 <StackLayout
                     Padding="10,10,10,20"
                     HorizontalOptions="Center"
