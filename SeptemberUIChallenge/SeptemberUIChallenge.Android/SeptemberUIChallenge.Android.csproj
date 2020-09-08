@@ -47,6 +47,7 @@
     <ItemGroup>
         <PackageReference Include="Behaviors.Forms" Version="1.4.0" />
         <PackageReference Include="Fody" Version="6.2.5" />
+        <PackageReference Include="InteractiveAlerts" Version="0.1.8" />
         <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
         <PackageReference Include="Realm" Version="4.3.0" />
         <PackageReference Include="Realm.Fody" Version="4.3.0" />

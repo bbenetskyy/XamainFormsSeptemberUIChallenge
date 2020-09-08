@@ -10,10 +10,6 @@ namespace SeptemberUIChallenge.PageModels
         #endregion Fields
 
         #region Constructor
-
-        public StatisticsPageModel(ILogger logger) : base(logger)
-        {
-        }
         #endregion Constructor
 
         #region Properties

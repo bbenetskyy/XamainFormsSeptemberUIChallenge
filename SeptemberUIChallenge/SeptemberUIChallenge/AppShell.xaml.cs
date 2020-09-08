@@ -8,16 +8,6 @@ namespace SeptemberUIChallenge
         public AppShell()
         {
             InitializeComponent();
-            RegisterRoutes();
-        }
-
-        private void RegisterRoutes()
-        {
-            Routing.RegisterRoute("welcome", typeof(WelcomePage));
-            Routing.RegisterRoute("main", typeof(MainPage));
-            Routing.RegisterRoute("cards", typeof(CardsPage));
-            Routing.RegisterRoute("favourites", typeof(FavouritesPage));
-            Routing.RegisterRoute("statistics", typeof(StatisticsPage));
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Support.V7.App;
+using InteractiveAlert;
 using Lottie.Forms.Droid;
 
 namespace SeptemberUIChallenge.Android
@@ -20,6 +22,7 @@ namespace SeptemberUIChallenge.Android
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
             AnimationViewRenderer.Init();
+            InteractiveAlerts.Init(() => (AppCompatActivity) Xamarin.Forms.Forms.Context);
             LoadApplication(new App());
         }
     }

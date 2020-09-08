@@ -1,7 +1,12 @@
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Refit;
 using SeptemberUIChallenge.Commands;
+using SeptemberUIChallenge.Data.Api;
 using SeptemberUIChallenge.Data.Logger;
 using SeptemberUIChallenge.Data.Models;
 using SeptemberUIChallenge.Models;
@@ -29,8 +34,7 @@ namespace SeptemberUIChallenge.PageModels
 
         public WelcomePageModel(
             ILoginService loginService,
-            ISecureStorage storage,
-            ILogger logger) : base(logger)
+            ISecureStorage storage)
         {
             _storage = storage;
             _loginService = loginService;
@@ -77,25 +81,31 @@ namespace SeptemberUIChallenge.PageModels
             var result = await _validator.ValidateAsync(LoginModel);
             if (!result.IsValid)
             {
-                //todo add validation Error to UI
+                AlertService.ShowError(result.Errors.First().ErrorMessage,"Validation Error");
                 return;
             }
-            
+
             try
             {
-               var token =  await (_loginMode switch
+                var token = await (_loginMode switch
                 {
-                    Register => _loginService.Register(LoginModel.Email,LoginModel.Password),
-                    Login => _loginService.Login(LoginModel.Email,LoginModel.Password),
+                    Register => _loginService.Register(LoginModel.Email, LoginModel.Password),
+                    Login => _loginService.Login(LoginModel.Email, LoginModel.Password),
                     _ => throw new ArgumentOutOfRangeException(nameof(_loginMode))
                 });
-               //in real app we might store this token and use in future requests, but our API never need it
-               //await _storage.SetAsync(nameof(token),token);
+                //in real app we might store this token and use in future requests, but our API never need it
+                //await _storage.SetAsync(nameof(token),token);
                 Application.Current.MainPage = new AppShell();
             }
-            catch (Exception e)
+            catch (ApiException apiException)
             {
-               Logger.LogError(e);
+                AlertService.ShowError(apiException.GetContentErrorString());
+                Logger.LogError(apiException);
+            }
+            catch (Exception e)
+            { 
+                AlertService.ShowError(e.Message);
+                Logger.LogError(e);
             }
         }
 

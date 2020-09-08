@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using SeptemberUIChallenge.Data.Logger;
+using SeptemberUIChallenge.Services;
 using Xamarin.Forms;
 
 namespace SeptemberUIChallenge.PageModels
@@ -13,9 +14,11 @@ namespace SeptemberUIChallenge.PageModels
 
         #region Constructor
 
-        public BasePageModel(ILogger logger)
+        public BasePageModel()
         {
-            Logger = logger;
+            Logger = DependencyService.Get<ILogger>();
+            AlertService = DependencyService.Get<IAlertService>();
+            ConnectionManager = DependencyService.Get<IConnectionManager>();
         }
         
         #endregion Constructor
@@ -24,6 +27,8 @@ namespace SeptemberUIChallenge.PageModels
 
         public bool IsBusy { get; set; }
         protected ILogger Logger { get; }
+        protected IAlertService AlertService { get; }
+        protected IConnectionManager ConnectionManager { get; }
 
         #endregion Properties
 

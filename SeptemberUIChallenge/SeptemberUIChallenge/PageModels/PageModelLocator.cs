@@ -8,15 +8,11 @@ namespace SeptemberUIChallenge.PageModels
     {
         public WelcomePageModel WelcomePageModel => new WelcomePageModel(
             DependencyService.Get<ILoginService>(),
-            DependencyService.Get<ISecureStorage>(),
-            DependencyService.Get<ILogger>());
+            DependencyService.Get<ISecureStorage>());
         public CardsPageModel CardsPageModel => new CardsPageModel(
-            DependencyService.Get<IUserService>(),
-            DependencyService.Get<ILogger>());
-        public StatisticsPageModel StatisticsPageModel => new StatisticsPageModel(
-            DependencyService.Get<ILogger>());
+            DependencyService.Get<IUserService>());
+        public StatisticsPageModel StatisticsPageModel => new StatisticsPageModel();
         public FavouritesPageModel FavouritesPageModel => new FavouritesPageModel(
-            DependencyService.Get<IUserService>(),
-            DependencyService.Get<ILogger>());
+            DependencyService.Get<IUserService>());
     }
 }

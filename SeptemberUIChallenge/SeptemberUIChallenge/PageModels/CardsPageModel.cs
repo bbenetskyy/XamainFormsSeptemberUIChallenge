@@ -3,7 +3,9 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using MLToolkit.Forms.SwipeCardView.Core;
+using Refit;
 using SeptemberUIChallenge.Commands;
+using SeptemberUIChallenge.Data.Api;
 using SeptemberUIChallenge.Data.Logger;
 using SeptemberUIChallenge.Data.Models;
 using SeptemberUIChallenge.Services;
@@ -21,9 +23,7 @@ namespace SeptemberUIChallenge.PageModels
 
         #region Constructor
 
-        public CardsPageModel(
-            IUserService userService,
-            ILogger logger) : base(logger)
+        public CardsPageModel(IUserService userService)
         {
             _userService = userService;
             Users = new ObservableCollection<UserDetails>();
@@ -59,6 +59,7 @@ namespace SeptemberUIChallenge.PageModels
             }
             catch (Exception e)
             {
+                AlertService.ShowError(e.Message);
                 Logger.LogError(e);
             }
         }
@@ -72,8 +73,14 @@ namespace SeptemberUIChallenge.PageModels
                 var users = await _userService.GetUserList();
                 users.ForEach(Users.Add);
             }
-            catch (Exception e)
+            catch (ApiException apiException)
             {
+                AlertService.ShowError(apiException.GetContentErrorString());
+                Logger.LogError(apiException);
+            }
+            catch (Exception e)
+            { 
+                AlertService.ShowError(e.Message);
                 Logger.LogError(e);
             }
             finally

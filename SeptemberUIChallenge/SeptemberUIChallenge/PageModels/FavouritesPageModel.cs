@@ -19,9 +19,7 @@ namespace SeptemberUIChallenge.PageModels
 
         #region Constructor
 
-        public FavouritesPageModel(
-            IUserService userService,
-            ILogger logger) : base(logger)
+        public FavouritesPageModel(IUserService userService)
         {
             _userService = userService;
             Users = new ObservableCollection<UserDetails>();
@@ -54,8 +52,9 @@ namespace SeptemberUIChallenge.PageModels
                 users.ForEach(Users.Add);
             }
             catch (Exception e)
-            {
-               Logger.LogError(e);
+            { 
+                AlertService.ShowError(e.Message);
+                Logger.LogError(e);
             }
             finally
             {

@@ -1,3 +1,4 @@
+using InteractiveAlert;
 using Refit;
 using SeptemberUIChallenge.Commands;
 using SeptemberUIChallenge.Data.Api;
@@ -13,6 +14,9 @@ namespace SeptemberUIChallenge
         public static void RegisterTypes()
         {
             // That's why I low IoC in MVVMCross :P
+            DependencyService.RegisterSingleton<IAlertService>(new AlertService(
+                InteractiveAlerts.Instance));
+            DependencyService.RegisterSingleton<IConnectionManager>(new ConnectionManager());
             DependencyService.RegisterSingleton<ILogger>(new LogDebugManager());
             DependencyService.RegisterSingleton<IDatabaseProvider>(new InMemoryDatabaseProvider(
                 DependencyService.Get<ILogger>()));
