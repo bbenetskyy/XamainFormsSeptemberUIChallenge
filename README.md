@@ -3,6 +3,10 @@ Simple App with beautiful UI made with Xamarin.Forms v4.8 - more will be soon in
 
 [![CodeFactor](https://www.codefactor.io/repository/github/bbenetskyy/xamainformsseptemberuichallenge/badge)](https://www.codefactor.io/repository/github/bbenetskyy/xamainformsseptemberuichallenge)
 
+## API
+
+This app has integration with https://reqres.in for Login, Register and Get Users. If you want to register ro login inside app you should use this email `eve.holt@reqres.in` and any password(not empty).
+
 ## App Dependencies
 
 ![NuGet](https://img.shields.io/badge/Behaviors.Forms-v1.4.0-brightgreen)
